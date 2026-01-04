@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-navbar',
@@ -11,10 +12,20 @@ import { ButtonModule } from 'primeng/button';
   imports: [RouterModule, MenubarModule, ButtonModule],
 })
 export class NavbarComponent {
-  items = [
+  mobileOpen = false;
+
+  items: MenuItem[] = [
     { label: 'Inicio', routerLink: '/home' },
     { label: 'Servicios', routerLink: '/servicios' },
     { label: 'Nosotros', routerLink: '/nosotros' },
     { label: 'Ayuda', routerLink: '/ayuda' },
   ];
+
+  toggleMobileMenu() {
+    this.mobileOpen = !this.mobileOpen;
+  }
+
+  closeMobileMenu() {
+    this.mobileOpen = false;
+  }
 }

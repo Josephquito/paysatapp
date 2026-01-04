@@ -4,12 +4,14 @@
   </ng-template>
 
   <ng-template pTemplate="end">
-    <div class="actions">
+    <!-- DESKTOP -->
+    <div class="actions desktop-only">
       @for (item of items; track item.label) {
       <a class="menu-link" [routerLink]="item.routerLink" routerLinkActive="active">
         {{ item.label }}
       </a>
       }
+
       <a
         class="menu-link external"
         href="https://www.google.com"
@@ -18,7 +20,38 @@
       >
         Abre tu cuenta
       </a>
-      <button pButton label="Banca Virtual" icon="pi pi-lock" routerLink="/bank"></button>
+
+      <button pButton label="Banca Virtual" routerLink="/bank"></button>
     </div>
+
+    <!-- MOBILE: hamburguesa -->
+    <button
+      class="mobile-only hamburger"
+      pButton
+      type="button-mobile"
+      icon="pi pi-bars"
+      (click)="toggleMobileMenu()"
+      aria-label="Abrir menú"
+    ></button>
   </ng-template>
 </p-menubar>
+
+<!-- PANEL MOBILE FULL WIDTH (debajo del navbar) -->
+<div class="mobile-panel" [class.open]="mobileOpen">
+  <a class="mobile-link" routerLink="/home" (click)="closeMobileMenu()">Inicio</a>
+  <a class="mobile-link" routerLink="/servicios" (click)="closeMobileMenu()">Servicios</a>
+  <a class="mobile-link" routerLink="/nosotros" (click)="closeMobileMenu()">Nosotros</a>
+  <a class="mobile-link" routerLink="/ayuda" (click)="closeMobileMenu()">Ayuda</a>
+
+  <a
+    class="mobile-link"
+    href="https://www.google.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    (click)="closeMobileMenu()"
+  >
+    Abre tu cuenta
+  </a>
+
+  <a class="mobile-link" routerLink="/bank" (click)="closeMobileMenu()"> Banca Virtual </a>
+</div>

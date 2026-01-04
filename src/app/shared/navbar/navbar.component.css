@@ -37,12 +37,7 @@
   font-weight: 450;
 }
 
-.menu-link:hover::after,
-.menu-link.active::after {
-  width: 100%;
-}
-
-/* Botón Banca Virtual */
+/* Botón Prime (Banca Virtual) */
 .p-button {
   background-color: #1da1f2;
   border: none;
@@ -55,4 +50,69 @@
 .p-button:hover {
   background-color: #0a70af;
   border: none;
+}
+
+/* ==============
+   MOBILE TOGGLE
+============== */
+/* Desktop/Mobile switches */
+.desktop-only {
+  display: flex;
+}
+.mobile-only {
+  display: none;
+}
+
+.p-button.hamburger {
+  --p-icon-size: 20px;
+  color: #000000;
+  background-color: transparent;
+  padding: 10px 12px;
+}
+
+/* Panel móvil: por defecto oculto */
+.mobile-panel {
+  display: none;
+}
+
+/* Breakpoint móvil */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+  .mobile-only {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Panel full width debajo del navbar */
+  .mobile-panel {
+    display: block;
+    width: 100%;
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+
+    /* Animación tipo “bandeja” */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  .mobile-panel.open {
+    max-height: 420px; /* suficiente para 6 items */
+  }
+
+  .mobile-link {
+    display: block;
+    padding: 14px 18px;
+    color: #1f2937;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .mobile-link:hover {
+    background: rgba(31, 41, 55, 0.06);
+  }
 }
