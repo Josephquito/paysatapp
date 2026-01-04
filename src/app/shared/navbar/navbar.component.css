@@ -74,6 +74,13 @@
   background-color: transparent;
 }
 
+.p-button.hamburger:not(:disabled):hover {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: inherit !important;
+}
+
 /* Panel móvil: por defecto oculto */
 .mobile-panel {
   display: none;

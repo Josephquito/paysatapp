@@ -25,12 +25,10 @@ export class NavbarComponent {
 
   toggleMobileMenu() {
     this.mobileOpen = !this.mobileOpen;
-    this.syncBodyScroll();
   }
 
   closeMobileMenu() {
     this.mobileOpen = false;
-    this.syncBodyScroll();
   }
 
   // Cerrar al hacer click fuera del panel (y no en el botón hamburguesa)
@@ -51,10 +49,5 @@ export class NavbarComponent {
   @HostListener('window:scroll')
   onWindowScroll() {
     if (this.mobileOpen) this.closeMobileMenu();
-  }
-
-  // Opcional pro: bloquear scroll del body cuando el menú está abierto
-  private syncBodyScroll() {
-    document.body.style.overflow = this.mobileOpen ? 'hidden' : '';
   }
 }
