@@ -14,3 +14,8 @@ body {
 .p-component {
   font-family: 'Poppins', inherit;
 }
+
+.p-button:hover {
+  background-color: #0a70af;
+  border: none;
+}
