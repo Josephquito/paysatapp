@@ -4,7 +4,6 @@
   </ng-template>
 
   <ng-template pTemplate="end">
-    <!-- DESKTOP -->
     <div class="actions desktop-only">
       @for (item of items; track item.label) {
       <a class="menu-link" [routerLink]="item.routerLink" routerLinkActive="active">
@@ -24,11 +23,10 @@
       <button pButton label="Banca Virtual" routerLink="/bank"></button>
     </div>
 
-    <!-- MOBILE: hamburguesa -->
     <button
       class="mobile-only hamburger"
       pButton
-      type="button-mobile"
+      type="button"
       icon="pi pi-bars"
       (click)="toggleMobileMenu()"
       aria-label="Abrir menú"
@@ -36,8 +34,11 @@
   </ng-template>
 </p-menubar>
 
-<!-- PANEL MOBILE FULL WIDTH (debajo del navbar) -->
-<div class="mobile-panel" [class.open]="mobileOpen">
+<!-- OVERLAY -->
+<div class="mobile-overlay" [class.open]="mobileOpen" (click)="closeMobileMenu()"></div>
+
+<!-- PANEL MOBILE FULL WIDTH -->
+<div #mobileMenu class="mobile-panel" [class.open]="mobileOpen">
   <a class="mobile-link" routerLink="/home" (click)="closeMobileMenu()">Inicio</a>
   <a class="mobile-link" routerLink="/servicios" (click)="closeMobileMenu()">Servicios</a>
   <a class="mobile-link" routerLink="/nosotros" (click)="closeMobileMenu()">Nosotros</a>
@@ -53,5 +54,5 @@
     Abre tu cuenta
   </a>
 
-  <a class="mobile-link" routerLink="/bank" (click)="closeMobileMenu()"> Banca Virtual </a>
+  <a class="mobile-link" routerLink="/bank" (click)="closeMobileMenu()">Banca Virtual</a>
 </div>

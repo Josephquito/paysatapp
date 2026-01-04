@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MenubarModule } from 'primeng/menubar';
 import { ButtonModule } from 'primeng/button';
@@ -14,6 +14,8 @@ import { MenuItem } from 'primeng/api';
 export class NavbarComponent {
   mobileOpen = false;
 
+  @ViewChild('mobileMenu') mobileMenu!: ElementRef<HTMLElement>;
+
   items: MenuItem[] = [
     { label: 'Inicio', routerLink: '/home' },
     { label: 'Servicios', routerLink: '/servicios' },
@@ -23,9 +25,36 @@ export class NavbarComponent {
 
   toggleMobileMenu() {
     this.mobileOpen = !this.mobileOpen;
+    this.syncBodyScroll();
   }
 
   closeMobileMenu() {
     this.mobileOpen = false;
+    this.syncBodyScroll();
+  }
+
+  // Cerrar al hacer click fuera del panel (y no en el botón hamburguesa)
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: MouseEvent) {
+    if (!this.mobileOpen) return;
+
+    const target = event.target as HTMLElement;
+    const clickedInsideMenu = this.mobileMenu?.nativeElement.contains(target);
+    const clickedHamburger = target.closest('.hamburger');
+
+    if (!clickedInsideMenu && !clickedHamburger) {
+      this.closeMobileMenu();
+    }
+  }
+
+  // Cerrar al hacer scroll
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    if (this.mobileOpen) this.closeMobileMenu();
+  }
+
+  // Opcional pro: bloquear scroll del body cuando el menú está abierto
+  private syncBodyScroll() {
+    document.body.style.overflow = this.mobileOpen ? 'hidden' : '';
   }
 }

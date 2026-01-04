@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 @import 'primeicons/primeicons.css';
-
+:root,
 html,
 body {
   margin: 0;
@@ -9,13 +9,26 @@ body {
   height: 100%;
   font-family: 'Poppins', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  --primary-color: #1da1f2;
+  --primary-color-dark: #0a70af;
+  --secondary-color: #14171a;
+  --background-color: #ffffff;
+  --text-color: #000000;
+
+  --p-button-primary-background: #1da1f2;
+  --p-button-primary-border-color: #1da1f2;
+  --p-button-primary-color: #ffffff;
+
+  --p-button-primary-hover-background: #0a70af;
+  --p-button-primary-hover-border-color: #0a70af;
+  --p-button-primary-hover-color: #ffffff;
+
+  --p-button-primary-active-background: #085c8f;
+  --p-button-primary-active-border-color: #085c8f;
+  --p-button-primary-active-color: #ffffff;
 }
 
 .p-component {
   font-family: 'Poppins', inherit;
-}
-
-.p-button:hover {
-  background-color: #0a70af;
-  border: none;
 }
