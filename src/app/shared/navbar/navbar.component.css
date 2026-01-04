@@ -1,16 +1,10 @@
-/* =========================
-   MENUBAR BASE
-========================= */
+/* Menubar limpio */
 .p-menubar {
   border: none;
   padding: 10px 30px;
-  position: relative;
-  z-index: 3000; /* por encima del contenido */
 }
 
-/* =========================
-   LOGO
-========================= */
+/* Logo */
 .logo {
   height: 50px;
   cursor: pointer;
@@ -21,9 +15,7 @@
   transform: scale(1.06);
 }
 
-/* =========================
-   DESKTOP ACTIONS
-========================= */
+/* Contenedor derecho: menú + botón */
 .actions {
   display: flex;
   align-items: center;
@@ -33,43 +25,37 @@
 /* Links del menú */
 .menu-link {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 250;
   text-decoration: none;
   color: #1f2937;
   position: relative;
   padding: 4px 2px;
 }
 
+/* Activo */
 .menu-link.active {
-  font-weight: 500;
+  font-weight: 450;
 }
 
-/* =========================
-   BOTÓN PRIME (GLOBAL)
-========================= */
+/* Botón Prime (Banca Virtual) */
 .p-button {
   background-color: #1da1f2;
   border: none;
   border-radius: 999px;
   padding: 8px 18px;
   font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  /* Override PrimeNG hover (evita verde) */
-  --p-button-primary-hover-background: #0a70af;
-  --p-button-primary-hover-border-color: #0a70af;
-  --p-button-primary-hover-color: #ffffff;
+  display: inline-block;
 }
 
 .p-button:hover {
   background-color: #0a70af;
+  border: none;
 }
 
-/* =========================
-   DESKTOP / MOBILE SWITCH
-========================= */
+/* ==============
+   MOBILE TOGGLE
+============== */
+/* Desktop/Mobile switches */
 .desktop-only {
   display: flex;
 }
@@ -77,90 +63,50 @@
   display: none;
 }
 
-/* =========================
-   HAMBURGER BUTTON
-========================= */
 .p-button.hamburger {
-  --p-icon-size: 22px;
+  --p-icon-size: 20px;
+  color: #000000;
   background-color: transparent;
-  color: #1f2937;
   padding: 10px 12px;
-  border-radius: 12px;
 }
 
 .p-button.hamburger:hover {
-  background-color: rgba(31, 41, 55, 0.06);
+  background-color: transparent;
 }
 
-/* =========================
-   MOBILE OVERLAY
-========================= */
-.mobile-overlay {
-  display: none;
-}
-
-/* =========================
-   MOBILE PANEL
-========================= */
+/* Panel móvil: por defecto oculto */
 .mobile-panel {
   display: none;
 }
 
-/* =========================
-   MOBILE BREAKPOINT
-========================= */
+/* Breakpoint móvil */
 @media (max-width: 768px) {
-  /* Ocultar desktop */
   .desktop-only {
     display: none;
   }
-
   .mobile-only {
     display: inline-flex;
     align-items: center;
   }
 
-  /* =========================
-     OVERLAY
-  ========================= */
-  .mobile-overlay {
-    display: block;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.35);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-    z-index: 2000;
-  }
-
-  .mobile-overlay.open {
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  /* =========================
-     PANEL MOBILE FULL WIDTH
-  ========================= */
+  /* Panel full width debajo del navbar */
   .mobile-panel {
     display: block;
-    position: fixed;
-    top: 72px; /* altura aproximada del navbar */
-    left: 0;
     width: 100%;
     background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
 
+    /* Animación tipo “bandeja” */
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.25s ease;
-    z-index: 2100;
   }
 
   .mobile-panel.open {
-    max-height: 420px;
+    max-height: 420px; /* suficiente para 6 items */
   }
 
-  /* Links móviles */
   .mobile-link {
     display: block;
     padding: 14px 18px;
