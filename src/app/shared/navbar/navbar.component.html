@@ -1,0 +1,24 @@
+<p-menubar>
+  <ng-template pTemplate="start">
+    <img src="logyletras.png" alt="Logo" class="logo" routerLink="/home" />
+  </ng-template>
+
+  <ng-template pTemplate="end">
+    <div class="actions">
+      @for (item of items; track item.label) {
+      <a class="menu-link" [routerLink]="item.routerLink" routerLinkActive="active">
+        {{ item.label }}
+      </a>
+      }
+      <a
+        class="menu-link external"
+        href="https://www.google.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Abre tu cuenta
+      </a>
+      <button pButton label="Banca Virtual" icon="pi pi-lock" routerLink="/bank"></button>
+    </div>
+  </ng-template>
+</p-menubar>

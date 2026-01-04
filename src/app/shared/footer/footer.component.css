@@ -1,0 +1,98 @@
+/* CONTENEDOR GENERAL */
+.footer {
+  background-color: #1da1f2;
+  color: white;
+  padding: 30px 80px 0px;
+}
+
+/* FILA SUPERIOR */
+.footer-main {
+  display: flex;
+  justify-content: space-between;
+  column-gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* COLUMNAS */
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 300px;
+}
+
+.footer-col h4 {
+  margin-top: 0px;
+}
+
+.app-text p {
+  margin: 0px 0px 8px;
+  gap: 0px;
+}
+.app-text h4 {
+  margin: 0px;
+  gap: 0px;
+}
+
+/* LOGO */
+.footer-logo {
+  width: 250px;
+  margin-bottom: 0px;
+  transform: scale(1.15);
+  transform-origin: center;
+}
+
+/* LINKS */
+.footer a {
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* TÍTULOS */
+.footer h4 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+
+/* APP */
+.footer-app p {
+  margin-bottom: 0px;
+}
+
+/* BOTONES STORE */
+.store-buttons {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.store-buttons img {
+  height: 40px;
+  cursor: pointer;
+}
+
+/* TELÉFONO */
+.phone-img {
+  width: 250px;
+  height: 250px;
+  align-self: flex-end;
+  object-fit: cover;
+  object-position: top;
+  margin-bottom: -79px;
+}
+
+/* COPYRIGHT ABAJO DE TODO */
+.footer-copy {
+  width: 100%;
+  font-size: 15px;
+  text-align: left;
+  opacity: 0.8;
+  margin: 30px 0px 20px 0px;
+}

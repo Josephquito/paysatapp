@@ -1,0 +1,58 @@
+/* Menubar limpio */
+.p-menubar {
+  border: none;
+  padding: 10px 30px;
+}
+
+/* Logo */
+.logo {
+  height: 50px;
+  cursor: pointer;
+  transition: transform 0.18s ease;
+}
+
+.logo:hover {
+  transform: scale(1.06);
+}
+
+/* Contenedor derecho: menú + botón */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Links del menú */
+.menu-link {
+  font-size: 16px;
+  font-weight: 250;
+  text-decoration: none;
+  color: #1f2937;
+  position: relative;
+  padding: 4px 2px;
+}
+
+/* Activo */
+.menu-link.active {
+  font-weight: 450;
+}
+
+.menu-link:hover::after,
+.menu-link.active::after {
+  width: 100%;
+}
+
+/* Botón Banca Virtual */
+.p-button {
+  background-color: #1da1f2;
+  border: none;
+  border-radius: 999px;
+  padding: 8px 18px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.p-button:hover {
+  background-color: #0a70af;
+  border: none;
+}
