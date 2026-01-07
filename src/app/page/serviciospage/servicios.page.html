@@ -31,87 +31,32 @@
       <h2 class="section__title">Servicios en línea</h2>
 
       <div class="services-grid">
-        <!-- Card 1 -->
-        <article class="service-card">
-          <p class="service-card__kicker">Servicio</p>
-          <h3 class="service-card__title">Servicio name 1</h3>
-          <p class="service-card__text">
-            Lorem ipsum is simply dummy text of the printing and typesetting industry.
-          </p>
-          <p class="service-card__text">
-            Lorem ipsum has been the industry's standard dummy text ever since the 1500s.
-          </p>
-          <a class="service-card__link" href="#">Conoce más sobre</a>
-        </article>
+        <article class="service-card" *ngFor="let service of visibleServices">
+          <p class="service-card__kicker">{{ service.kicker }}</p>
 
-        <!-- Card 2 -->
-        <article class="service-card">
-          <p class="service-card__kicker">Servicio</p>
-          <h3 class="service-card__title">Servicio name 2</h3>
-          <p class="service-card__text">
-            Lorem ipsum is simply dummy text of the printing and typesetting industry.
-          </p>
-          <p class="service-card__text">
-            Lorem ipsum has been the industry's standard dummy text ever since the 1500s.
-          </p>
-          <a class="service-card__link" href="#">Conoce más sobre</a>
-        </article>
+          <h3 class="service-card__title">
+            {{ service.title }}
+          </h3>
 
-        <!-- Card 3 -->
-        <article class="service-card">
-          <p class="service-card__kicker">Servicio</p>
-          <h3 class="service-card__title">Servicio name 3</h3>
-          <p class="service-card__text">
-            Lorem ipsum is simply dummy text of the printing and typesetting industry.
+          <p class="service-card__subtitle">
+            {{ service.text1 }}
           </p>
-          <p class="service-card__text">
-            Lorem ipsum has been the industry's standard dummy text ever since the 1500s.
-          </p>
-          <a class="service-card__link" href="#">Conoce más sobre</a>
-        </article>
 
-        <!-- Card 4 -->
-        <article class="service-card">
-          <p class="service-card__kicker">Servicio</p>
-          <h3 class="service-card__title">Servicio name 4</h3>
           <p class="service-card__text">
-            Lorem ipsum is simply dummy text of the printing and typesetting industry.
+            {{ service.text2 }}
           </p>
-          <p class="service-card__text">
-            Lorem ipsum has been the industry's standard dummy text ever since the 1500s.
-          </p>
-          <a class="service-card__link" href="#">Conoce más sobre</a>
-        </article>
 
-        <!-- Card 5 -->
-        <article class="service-card">
-          <p class="service-card__kicker">Servicio</p>
-          <h3 class="service-card__title">Servicio name 5</h3>
-          <p class="service-card__text">
-            Lorem ipsum is simply dummy text of the printing and typesetting industry.
-          </p>
-          <p class="service-card__text">
-            Lorem ipsum has been the industry's standard dummy text ever since the 1500s.
-          </p>
-          <a class="service-card__link" href="#">Conoce más sobre</a>
-        </article>
-
-        <!-- Card 6 -->
-        <article class="service-card">
-          <p class="service-card__kicker">Servicio</p>
-          <h3 class="service-card__title">Servicio name 6</h3>
-          <p class="service-card__text">
-            Lorem ipsum is simply dummy text of the printing and typesetting industry.
-          </p>
-          <p class="service-card__text">
-            Lorem ipsum has been the industry's standard dummy text ever since the 1500s.
-          </p>
-          <a class="service-card__link" href="#">Conoce más sobre</a>
+          <a class="service-card__link" [href]="service.href">
+            {{ service.linkText }}
+          </a>
         </article>
       </div>
 
-      <div class="see-more">
-        <a class="see-more__link" href="#">ver más</a>
+      <!-- VER MÁS -->
+      <div class="see-more" *ngIf="hasMore">
+        <a class="see-more__link" href="#" (click)="loadMore(); $event.preventDefault()">
+          ver más
+        </a>
       </div>
     </div>
   </section>
@@ -124,7 +69,7 @@
 
       <div class="channels">
         <div class="channels__left">
-          <button class="channel-item is-active" type="button">
+          <button class="channel-item" type="button">
             <span class="channel-item__title">Banca virtual</span>
             <span class="channel-item__meta">Tu banco online</span>
           </button>
