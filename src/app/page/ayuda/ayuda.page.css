@@ -262,3 +262,156 @@
 .ayuda-contacto__link:hover {
   text-decoration: underline;
 }
+/* =========================
+   AYUDA – RESPONSIVE ONLY
+   (Overrides por breakpoint; no cambia desktop)
+========================= */
+
+/* ====== <= 1024px ====== */
+@media (max-width: 1024px) {
+  /* Mantén anchos, pero reduce márgenes laterales “calc(100% - 48px)” */
+  .ayuda-hero,
+  .ayuda-faq__wrap,
+  .ayuda-contacto {
+    width: min(900px, calc(100% - 40px));
+  }
+
+  /* Media un poco más baja en pantallas medianas */
+  .faq-media__player,
+  .faq-media__frame,
+  .faq-media__img {
+    height: 240px;
+  }
+}
+
+/* ====== <= 768px ====== */
+@media (max-width: 768px) {
+  .ayuda-hero {
+    padding: 26px 0 14px;
+  }
+
+  .ayuda-hero__title {
+    font-size: 28px;
+  }
+
+  /* FAQ padding más compacto */
+  .faq-item__summary {
+    padding: 12px 14px;
+  }
+
+  .faq-item__body {
+    padding: 14px 14px 16px;
+  }
+
+  .faq-item__q {
+    font-size: 15px;
+  }
+
+  /* Media: reduce altura */
+  .faq-media__player,
+  .faq-media__frame,
+  .faq-media__img {
+    height: 220px;
+  }
+
+  /* Contacto: sigue en 2 columnas pero con mejor ajuste */
+  .ayuda-contacto__grid {
+    gap: 14px;
+  }
+
+  .ayuda-contacto__card {
+    padding: 16px 18px;
+  }
+
+  .ayuda-contacto__title {
+    font-size: 18px;
+  }
+
+  .ayuda-contacto__link {
+    font-size: 14px;
+  }
+}
+
+/* ====== <= 640px ====== */
+@media (max-width: 640px) {
+  /* Anchos generales más “mobile” */
+  .ayuda-hero,
+  .ayuda-faq__wrap,
+  .ayuda-contacto {
+    width: min(900px, calc(100% - 32px));
+  }
+
+  .ayuda-hero__title {
+    font-size: 24px;
+    margin-bottom: 14px;
+  }
+
+  /* Buscador: altura ligeramente menor */
+  .ayuda-search__input {
+    padding: 11px 12px;
+    font-size: 14px;
+  }
+
+  .ayuda-search__btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* Steps: menos indent */
+  .faq-steps {
+    margin: 0 0 14px 16px;
+  }
+
+  .faq-step__title {
+    font-size: 14px;
+  }
+
+  .faq-step__subtitle {
+    font-size: 13px;
+  }
+
+  /* Media: altura menor para evitar scroll excesivo */
+  .faq-media__player,
+  .faq-media__frame,
+  .faq-media__img {
+    height: 200px;
+  }
+
+  /* Contacto: 1 columna */
+  .ayuda-contacto__grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ayuda-contacto__card {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+
+  .ayuda-contacto__lead {
+    font-size: 16px;
+  }
+}
+
+/* ====== <= 480px ====== */
+@media (max-width: 480px) {
+  .ayuda-hero,
+  .ayuda-faq__wrap,
+  .ayuda-contacto {
+    width: min(900px, calc(100% - 24px));
+  }
+
+  .faq-item__q {
+    font-size: 14px;
+  }
+
+  .faq-item__chev {
+    font-size: 14px;
+  }
+
+  .faq-media__player,
+  .faq-media__frame,
+  .faq-media__img {
+    height: 180px;
+  }
+}

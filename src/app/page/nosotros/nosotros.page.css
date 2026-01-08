@@ -318,3 +318,206 @@
   font-weight: 400;
   color: #111827;
 }
+
+/* =========================
+   NOSOTROS – RESPONSIVE ONLY
+   (Overrides por breakpoint; no cambia desktop)
+========================= */
+
+/* ====== <= 1024px ====== */
+@media (max-width: 1024px) {
+  /* HERO: menos padding lateral en texto */
+  .nosotros-hero__content {
+    padding: 0 40px;
+  }
+
+  .nosotros-hero__title {
+    font-size: 30px;
+  }
+
+  /* MV: reduce gap */
+  .nosotros-mv__grid {
+    gap: 48px;
+  }
+
+  /* Conoce más: permite wrap si no cabe */
+  .nosotros-mas__grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 34px;
+  }
+
+  .nosotros-mas__item {
+    flex: 0 0 calc(50% - 17px);
+  }
+
+  /* Contacto: menos padding general */
+  .nosotros-contacto {
+    padding: 0 28px;
+  }
+
+  /* Redes: asegura altura mínima */
+  .nosotros-redes__media {
+    min-height: 300px;
+  }
+}
+
+/* ====== <= 768px ====== */
+@media (max-width: 768px) {
+  /* HERO: stack a 1 columna */
+  .nosotros-hero__grid {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .nosotros-hero__media {
+    flex: none;
+    width: 100%;
+    height: 230px;
+  }
+
+  .nosotros-hero__content {
+    padding: 22px 22px 26px;
+  }
+
+  .nosotros-hero__title {
+    font-size: 28px;
+  }
+
+  .nosotros-hero__text {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left;
+  }
+
+  /* MV: 1 columna */
+  .nosotros-mv__grid {
+    flex-direction: column;
+    gap: 28px;
+    width: min(1100px, calc(100% - 40px));
+  }
+
+  .nosotros-mv__title {
+    font-size: 26px;
+  }
+
+  /* Conoce más: 2 columnas */
+  .nosotros-mas__grid {
+    width: min(1100px, calc(100% - 40px));
+  }
+
+  .nosotros-mas__icon {
+    width: 110px;
+    height: 110px;
+  }
+
+  .nosotros-mas__icon img {
+    width: 68px;
+  }
+
+  /* Contacto: 1 columna */
+  .nosotros-contacto__grid {
+    width: min(1100px, calc(100% - 40px));
+    margin: 14px auto 40px;
+  }
+
+  .nosotros-tile {
+    flex: 0 0 100%;
+  }
+
+  /* Redes: 1 columna (imagen arriba, lista abajo) */
+  .nosotros-redes__grid {
+    grid-template-columns: 1fr;
+    width: min(1100px, calc(100% - 40px));
+    margin: 10px auto 40px;
+  }
+
+  .nosotros-redes__media {
+    min-height: 240px;
+  }
+
+  .nosotros-redes__item {
+    padding: 16px 18px;
+  }
+
+  .nosotros-redes__item span {
+    font-size: 18px;
+  }
+
+  .nosotros-redes__icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* ====== <= 640px ====== */
+@media (max-width: 640px) {
+  .nosotros-section__title {
+    font-size: 26px;
+    margin: 38px 0 12px;
+  }
+
+  .nosotros-hero__media {
+    height: 210px;
+  }
+
+  .nosotros-hero__content {
+    padding: 18px 18px 22px;
+  }
+
+  .nosotros-hero__title {
+    font-size: 26px;
+  }
+
+  /* Conoce más: 1 columna (mejor lectura) */
+  .nosotros-mas__item {
+    flex: 0 0 100%;
+  }
+
+  .nosotros-mas__grid {
+    gap: 22px;
+    width: min(1100px, calc(100% - 32px));
+  }
+
+  /* Ajustes laterales generales */
+  .nosotros-mv__grid,
+  .nosotros-contacto__grid,
+  .nosotros-redes__grid {
+    width: min(1100px, calc(100% - 32px));
+  }
+
+  .nosotros-contacto {
+    padding: 0 18px;
+  }
+}
+
+/* ====== <= 480px ====== */
+@media (max-width: 480px) {
+  .nosotros-hero__media {
+    height: 190px;
+  }
+
+  .nosotros-mv__title {
+    font-size: 24px;
+  }
+
+  .nosotros-mas__label {
+    font-size: 14px;
+  }
+
+  .nosotros-tile {
+    padding: 16px 18px;
+  }
+
+  .nosotros-tile__title {
+    font-size: 18px;
+  }
+
+  .nosotros-tile__action {
+    font-size: 14px;
+  }
+
+  .nosotros-redes__item span {
+    font-size: 17px;
+  }
+}

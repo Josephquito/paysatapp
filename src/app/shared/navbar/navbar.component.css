@@ -87,7 +87,7 @@
 }
 
 /* Breakpoint móvil */
-@media (max-width: 768px) {
+@media (max-width: 851px) {
   .desktop-only {
     display: none;
   }

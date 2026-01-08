@@ -286,3 +286,212 @@
   object-fit: cover;
   display: block;
 }
+
+/* =========================
+   SERVICIOS PAGE – RESPONSIVE ONLY
+   (No toca estilos desktop; solo overrides por breakpoint)
+========================= */
+
+/* ====== <= 1024px ====== */
+@media (max-width: 1024px) {
+  /* HERO card: reduce 2 columnas y ajusta padding */
+  .hero-card {
+    grid-template-columns: 1fr 1fr;
+    min-height: 280px;
+  }
+
+  .hero-card__title,
+  .hero-card__text,
+  .hero-card__link {
+    padding-right: 32px;
+  }
+
+  /* Diagonal un poco menos agresiva para pantallas medianas */
+  .hero-card::before {
+    clip-path: polygon(38% 0%, 100% 0%, 100% 100%, 30% 100%);
+  }
+
+  /* Servicios grid: 2 columnas */
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  /* Channels: mantiene 2 columnas pero con altura estable */
+  .channels__right {
+    min-height: 320px;
+  }
+}
+
+/* ====== <= 768px ====== */
+@media (max-width: 768px) {
+  /* HERO bg más bajo */
+  .hero__bg {
+    height: 200px;
+  }
+
+  /* Card flotante: stack a 1 columna */
+  .floating-card {
+    margin-top: -60px;
+  }
+
+  .hero-card {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .hero-card__img {
+    grid-column: 1;
+    grid-row: auto;
+    height: 220px;
+    display: none;
+  }
+
+  .hero-card__img img {
+    display: none;
+  }
+
+  /* Fondo: sin diagonal (en móvil se vuelve bloque para legibilidad) */
+  .hero-card::before {
+    clip-path: none;
+  }
+
+  .hero-card__title,
+  .hero-card__text,
+  .hero-card__link {
+    grid-column: 1;
+    padding: 0 22px;
+  }
+
+  .hero-card__title {
+    margin: 22px 0 0;
+    font-size: 28px;
+    text-align: left;
+  }
+
+  .hero-card__text {
+    margin: 10px 0 0;
+    font-size: 15px;
+    line-height: 1.45;
+    text-align: left;
+  }
+
+  .hero-card__link {
+    justify-self: start;
+    align-self: start;
+    padding-bottom: 22px;
+    margin-top: 14px;
+    font-size: 16px;
+  }
+
+  /* Servicios grid: 1 columna */
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Reduce margen lateral del texto largo (evita espacios raros en móvil) */
+  .service-card__text {
+    margin: 0 0 10px;
+  }
+
+  /* Channels: 1 columna */
+  .channels {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 40px;
+  }
+
+  .channels__right {
+    min-height: 260px;
+  }
+
+  .channel-item {
+    padding: 16px 18px;
+  }
+
+  .channel-item__title {
+    font-size: 18px;
+  }
+
+  .channel-item__meta {
+    font-size: 14px;
+  }
+}
+
+/* ====== <= 640px ====== */
+@media (max-width: 640px) {
+  /* Contenedor: menos margen lateral (tu .container usa calc(100% - 48px)) */
+  .container {
+    width: min(1100px, calc(100% - 32px));
+  }
+
+  .hero-card {
+    padding-bottom: 15px;
+  }
+
+  .section__title {
+    font-size: 26px;
+    margin: 38px 0 12px;
+  }
+
+  .section__subtitle {
+    font-size: 16px;
+    margin: -8px 0 14px;
+  }
+
+  .hero-card__img {
+    height: 200px;
+    display: none;
+  }
+
+  .hero-card__title,
+  .hero-card__text,
+  .hero-card__link {
+    padding: 0 18px;
+  }
+
+  .hero-card__title {
+    font-size: 26px;
+  }
+
+  .hero-card__text {
+    font-size: 14px;
+  }
+}
+
+/* ====== <= 480px ====== */
+@media (max-width: 480px) {
+  .hero__bg {
+    height: 180px;
+  }
+
+  .floating-card {
+    margin-top: -52px;
+  }
+
+  .hero-card__img {
+    height: 180px;
+  }
+
+  .hero-card__title {
+    font-size: 24px;
+  }
+
+  .hero-card__link .arrow {
+    margin-left: 6px;
+    font-size: 22px;
+  }
+
+  .service-card__title {
+    font-size: 17px;
+  }
+
+  .service-card__subtitle {
+    font-size: 13px;
+  }
+
+  .service-card__text {
+    font-size: 12px;
+  }
+}
