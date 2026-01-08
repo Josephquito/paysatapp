@@ -17,5 +17,10 @@ export const routes: Routes = [
     path: 'ayuda',
     loadComponent: () => import('./page/ayuda/ayuda.page').then((m) => m.AyudaPage),
   },
+  {
+    path: 'legal-documents',
+    loadComponent: () =>
+      import('./page/legal documents/legal-documents.page').then((m) => m.LegalDocumentsPage),
+  },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
 ];

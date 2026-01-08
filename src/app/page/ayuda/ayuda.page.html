@@ -1,3 +1,110 @@
-<section class="home">
-  <h1>Ayuda</h1>
-</section>
+<main class="ayuda">
+  <!-- HEADER / BUSCADOR -->
+  <section class="ayuda-hero">
+    <h1 class="ayuda-hero__title">Preguntas frecuentes FAQ</h1>
+
+    <div class="ayuda-search">
+      <input
+        class="ayuda-search__input"
+        type="text"
+        placeholder="Escribe tu pregunta"
+        [(ngModel)]="searchTerm"
+        (input)="onSearch()"
+      />
+
+      <button class="ayuda-search__btn" type="button" aria-label="Buscar">
+        <img class="ayuda-search__icon" src="icon-search.png" alt="Buscar" />
+      </button>
+    </div>
+  </section>
+
+  <!-- LISTA FAQ -->
+  <section class="ayuda-faq">
+    <div class="ayuda-faq__wrap">
+      <details class="faq-item" *ngFor="let faq of filteredFaqs">
+        <summary class="faq-item__summary">
+          <span class="faq-item__q">{{ faq.question }}</span>
+          <span class="faq-item__chev">▾</span>
+        </summary>
+
+        <div class="faq-item__body">
+          <!-- PASOS -->
+          <ol class="faq-steps">
+            <li class="faq-step" *ngFor="let s of faq.steps">
+              <div class="faq-step__title">{{ s.title }}</div>
+              <div class="faq-step__subtitle">{{ s.subtitle }}</div>
+            </li>
+          </ol>
+
+          <!-- MEDIA (opcional) -->
+          <div class="faq-media" *ngIf="faq.media">
+            <!-- VIDEO DESDE HOSTING -->
+            <div class="faq-media__video" *ngIf="faq.media.type === 'video-file'">
+              <div class="faq-media__label" *ngIf="faq.media.title">
+                {{ faq.media.title }}
+              </div>
+
+              <video
+                class="faq-media__player"
+                controls
+                preload="metadata"
+                [attr.poster]="faq.media.poster || null"
+              >
+                <source [src]="faq.media.src" type="video/mp4" />
+                Tu navegador no soporta reproducción de video.
+              </video>
+            </div>
+
+            <!-- VIDEO EMBED (YouTube u otros) -->
+            <div class="faq-media__video" *ngIf="faq.media.type === 'video-embed'">
+              <div class="faq-media__label" *ngIf="faq.media.title">
+                {{ faq.media.title }}
+              </div>
+
+              <iframe
+                class="faq-media__frame"
+                [src]="safeEmbedUrl(faq.media.src)"
+                [attr.title]="faq.media.title || 'Video tutorial'"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+
+            <!-- IMAGEN -->
+            <div class="faq-media__image" *ngIf="faq.media.type === 'image'">
+              <img
+                class="faq-media__img"
+                [src]="faq.media.src"
+                [attr.alt]="faq.media.title || 'Imagen informativa'"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- SIN RESULTADOS -->
+      <p *ngIf="filteredFaqs.length === 0" class="faq-empty">
+        No se encontraron resultados para tu búsqueda.
+      </p>
+    </div>
+  </section>
+
+  <!-- BLOQUE CONTACTO -->
+  <section class="ayuda-contacto">
+    <p class="ayuda-contacto__lead">No has encontrado solución? Contáctanos</p>
+
+    <div class="ayuda-contacto__grid">
+      <div class="ayuda-contacto__card">
+        <strong class="ayuda-contacto__title">Banca telefónica</strong>
+        <a class="ayuda-contacto__link" href="tel:+59340004000"> 400 4000 4000 </a>
+      </div>
+
+      <div class="ayuda-contacto__card">
+        <strong class="ayuda-contacto__title">Chat Bot</strong>
+        <a class="ayuda-contacto__link" href="#"> Iniciar chat </a>
+      </div>
+    </div>
+  </section>
+</main>
