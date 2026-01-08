@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 type ServiceItem = {
   title: string;
@@ -12,7 +13,7 @@ type ServiceItem = {
 
 @Component({
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './servicios.page.html',
   styleUrls: ['./servicios.page.css'],
 })

@@ -3,6 +3,7 @@
 :root,
 html,
 body {
+  --nav-h: 70px;
   color-scheme: light;
   margin: 0;
   padding: 0;
@@ -32,4 +33,8 @@ body {
 
 .p-component {
   font-family: 'Poppins', inherit;
+}
+
+body {
+  padding-top: var(--nav-h);
 }
