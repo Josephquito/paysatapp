@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { ChatWidgetComponent } from '../../shared/chat-widget/chat-widget.component';
 
 type FaqMedia =
   | { type: 'video-file'; src: string; poster?: string; title?: string }
@@ -22,12 +23,16 @@ interface FaqItem {
 @Component({
   selector: 'app-ayuda',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  // ✅ agrega ChatWidgetComponent aquí
+  imports: [CommonModule, FormsModule, ChatWidgetComponent],
   templateUrl: './ayuda.page.html',
   styleUrls: ['./ayuda.page.css'],
 })
 export class AyudaPage {
   searchTerm = '';
+
+  // ✅ referencia al widget para poder abrirlo desde el botón/link
+  @ViewChild(ChatWidgetComponent) chatWidget?: ChatWidgetComponent;
 
   faqs: FaqItem[] = [
     {
@@ -83,10 +88,7 @@ export class AyudaPage {
           title: 'Paso 1: Abre Ayuda',
           subtitle: 'Ingresa a la sección de ayuda desde el menú principal.',
         },
-        {
-          title: 'Paso 2: Reproduce el video',
-          subtitle: 'Presiona play en el tutorial embebido.',
-        },
+        { title: 'Paso 2: Reproduce el video', subtitle: 'Presiona play en el tutorial embebido.' },
       ],
       media: {
         type: 'video-embed',
@@ -100,14 +102,12 @@ export class AyudaPage {
 
   constructor(private sanitizer: DomSanitizer) {}
 
-  /** Solo para iframes (YouTube/embeds). No usar para mp4 */
   safeEmbedUrl(url: string): SafeResourceUrl {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   onSearch(): void {
     const term = this.searchTerm.toLowerCase().trim();
-
     if (!term) {
       this.filteredFaqs = [...this.faqs];
       return;
@@ -115,15 +115,17 @@ export class AyudaPage {
 
     this.filteredFaqs = this.faqs.filter((faq) => {
       const inQuestion = faq.question.toLowerCase().includes(term);
-
       const inSteps = faq.steps.some(
         (step) =>
-          step.title.toLowerCase().includes(term) || step.subtitle.toLowerCase().includes(term)
+          step.title.toLowerCase().includes(term) || step.subtitle.toLowerCase().includes(term),
       );
-
       const inMediaTitle = !!faq.media?.title && faq.media.title.toLowerCase().includes(term);
-
       return inQuestion || inSteps || inMediaTitle;
     });
+  }
+
+  // ✅ lo llamas desde “Iniciar chat”
+  openChat(): void {
+    this.chatWidget?.open();
   }
 }

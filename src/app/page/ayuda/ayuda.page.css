@@ -415,3 +415,17 @@
     height: 180px;
   }
 }
+
+.ayuda-contacto__btnlink {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+  color: #1ca4ff;
+  text-decoration: none;
+}
+
+.ayuda-contacto__btnlink:hover {
+  text-decoration: underline;
+}

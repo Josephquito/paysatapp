@@ -66,7 +66,14 @@
                 [src]="safeEmbedUrl(faq.media.src)"
                 [attr.title]="faq.media.title || 'Video tutorial'"
                 frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="
+                  accelerometer;
+                  autoplay;
+                  clipboard-write;
+                  encrypted-media;
+                  gyroscope;
+                  picture-in-picture;
+                "
                 allowfullscreen
               ></iframe>
             </div>
@@ -103,8 +110,15 @@
 
       <div class="ayuda-contacto__card">
         <strong class="ayuda-contacto__title">Chat Bot</strong>
-        <a class="ayuda-contacto__link" href="#"> Iniciar chat </a>
+        <button
+          class="ayuda-contacto__link ayuda-contacto__btnlink"
+          type="button"
+          (click)="openChat()"
+        >
+          Iniciar chat
+        </button>
       </div>
     </div>
   </section>
+  <app-chat-widget></app-chat-widget>
 </main>

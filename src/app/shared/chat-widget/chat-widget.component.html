@@ -1,0 +1,74 @@
+<!-- BOTÓN FLOTANTE -->
+<button
+  class="chat-fab"
+  type="button"
+  (click)="toggle()"
+  [attr.aria-expanded]="isOpen"
+  aria-label="Abrir chat"
+>
+  <span class="chat-fab__dot"></span>
+  <span class="chat-fab__label">Chat Bot</span>
+
+  <span class="chat-fab__badge" *ngIf="unread > 0">{{ unread }}</span>
+</button>
+
+<!-- PANEL FLOTANTE -->
+<section class="chat-panel" [class.is-open]="isOpen" role="dialog" aria-label="Chat PAYSAT">
+  <header class="chat-panel__header">
+    <div class="chat-panel__brand">
+      <div class="chat-panel__dot"></div>
+      <!-- reemplazar por logo de paysat -->
+      <div class="chat-panel__titles">
+        <div class="chat-panel__title">Chat Bot PAYSAT</div>
+        <div class="chat-panel__subtitle">Servicio al cliente de Paysat</div>
+      </div>
+    </div>
+
+    <i class="pi pi-times" (click)="close()"></i>
+  </header>
+
+  <div class="chat-panel__body" #scrollRef>
+    <!-- Mensajes -->
+    <div
+      class="chat-msg"
+      *ngFor="let m of messages"
+      [class.is-user]="m.from === 'user'"
+      [class.is-bot]="m.from === 'bot'"
+    >
+      <div class="chat-msg__bubble">
+        <div class="chat-msg__meta">
+          <strong>{{ m.from === 'user' ? 'Tú' : 'PAYSAT' }}</strong>
+        </div>
+        <div class="chat-msg__text">{{ m.text }}</div>
+      </div>
+    </div>
+
+    <!-- Typing -->
+    <div class="chat-typing" *ngIf="loading">
+      <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      <span class="chat-typing__text">PAYSAT está escribiendo…</span>
+    </div>
+
+    <!-- Estado vacío (opcional) -->
+    <div class="chat-empty" *ngIf="messages.length === 0 && !loading">
+      Hola 👋 ¿En qué te puedo ayudar?
+    </div>
+  </div>
+
+  <footer class="chat-panel__footer">
+    <textarea
+      #msgBox
+      class="chat-input"
+      [(ngModel)]="message"
+      (input)="autoGrow(msgBox)"
+      (keydown.enter)="onEnter($event, msgBox)"
+      placeholder="Escribe tu mensaje…"
+      rows="1"
+    ></textarea>
+
+    <i class="pi pi-send" (click)="send()"></i>
+  </footer>
+</section>
+
+<!-- Backdrop (solo móvil / opcional) -->
+<div class="chat-backdrop" [class.is-open]="isOpen" (click)="close()"></div>
