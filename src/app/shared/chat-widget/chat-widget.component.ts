@@ -1,7 +1,8 @@
-import { Component, HostListener, ViewChild, ElementRef } from '@angular/core';
+import { Component, HostListener, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChatWidgetService } from '../../services/chat-widget.service';
+import { ChatUiService } from './chat-ui.service';
 
 type Msg = { from: 'user' | 'bot'; text: string; ts?: number };
 
@@ -12,7 +13,7 @@ type Msg = { from: 'user' | 'bot'; text: string; ts?: number };
   templateUrl: './chat-widget.component.html',
   styleUrls: ['./chat-widget.component.css'],
 })
-export class ChatWidgetComponent {
+export class ChatWidgetComponent implements AfterViewInit {
   isOpen = false;
   message = '';
   messages: Msg[] = [];
@@ -22,7 +23,15 @@ export class ChatWidgetComponent {
 
   @ViewChild('scrollRef') scrollRef?: ElementRef<HTMLDivElement>;
 
-  constructor(private chatService: ChatWidgetService) {}
+  constructor(
+    private chatService: ChatWidgetService, // API (ya lo tienes)
+    private chatUi: ChatUiService, // UI global (nuevo)
+  ) {}
+
+  ngAfterViewInit(): void {
+    // ✅ ahora cualquier componente (footer/services/etc.) puede abrir este mismo widget
+    this.chatUi.register(this);
+  }
 
   open() {
     this.isOpen = true;
@@ -47,8 +56,7 @@ export class ChatWidgetComponent {
     this.message = '';
     this.loading = true;
 
-    this.resetComposer(); // ✅ vuelve a tamaño normal al enviar
-
+    this.resetComposer();
     this.scrollToBottom();
 
     this.chatService.sendMessage(userMessage).subscribe({
@@ -98,10 +106,10 @@ export class ChatWidgetComponent {
   onEnter(e: Event, el: HTMLTextAreaElement) {
     const event = e as KeyboardEvent;
 
-    if (event.shiftKey) return; // Shift+Enter => nueva línea
-    event.preventDefault(); // Enter => enviar
+    if (event.shiftKey) return;
+    event.preventDefault();
 
-    this.lastTextArea = el; // guarda referencia
-    this.send(); // send ya resetea
+    this.lastTextArea = el;
+    this.send();
   }
 }

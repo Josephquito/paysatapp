@@ -22,5 +22,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./page/legal documents/legal-documents.page').then((m) => m.LegalDocumentsPage),
   },
+  {
+    path: 'Abre-tu-cuenta',
+    loadComponent: () =>
+      import('./page/abre-tu-cuenta/abre-tu-cuenta.page').then((m) => m.AbreTuCuentaPage),
+  },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
 ];

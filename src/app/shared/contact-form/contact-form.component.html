@@ -1,0 +1,52 @@
+<section class="contact">
+  <div class="contact__card">
+    <h2 class="contact__title">{{ title }}</h2>
+    <p class="contact__subtitle">{{ subtitle }}</p>
+
+    <form class="contact__form" [formGroup]="form" (ngSubmit)="submit()">
+      <div class="contact__grid">
+        <div class="field">
+          <label class="field__label">Nombre</label>
+          <input class="field__input" type="text" formControlName="name" />
+          <small class="field__error" *ngIf="hasError('name', 'required')">
+            El nombre es obligatorio
+          </small>
+        </div>
+        <div class="field">
+          <label class="field__label">Apellido</label>
+          <input class="field__input" type="text" formControlName="lastName" />
+          <small class="field__error" *ngIf="hasError('lastName', 'required')">
+            El apellido es obligatorio
+          </small>
+        </div>
+
+        <div class="field">
+          <label class="field__label">Correo</label>
+          <input class="field__input" type="email" formControlName="email" />
+          <small class="field__error" *ngIf="hasError('email', 'required')">
+            El correo es obligatorio
+          </small>
+          <small class="field__error" *ngIf="hasError('email', 'email')"> Correo inválido </small>
+        </div>
+
+        <div class="field">
+          <label class="field__label">Teléfono</label>
+          <input class="field__input" type="tel" formControlName="phone" />
+          <small class="field__error" *ngIf="hasError('phone', 'required')">
+            El teléfono es obligatorio
+          </small>
+        </div>
+
+        <div class="field field--full">
+          <label class="field__label">Mensaje</label>
+          <textarea class="field__textarea" rows="5" formControlName="message"></textarea>
+          <small class="field__error" *ngIf="hasError('message', 'required')">
+            El mensaje es obligatorio
+          </small>
+        </div>
+      </div>
+
+      <button class="btn-primary" type="submit">Enviar mensaje</button>
+    </form>
+  </div>
+</section>

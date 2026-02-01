@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ChatUiService } from '../../shared/chat-widget/chat-ui.service';
 
 type ServiceItem = {
   title: string;
@@ -145,5 +146,11 @@ export class ServiciosPage {
 
   loadMore(): void {
     this.visibleCount = Math.min(this.visibleCount + this.step, this.services.length);
+  }
+
+  constructor(private chatUi: ChatUiService) {}
+
+  openChat(): void {
+    this.chatUi.open();
   }
 }

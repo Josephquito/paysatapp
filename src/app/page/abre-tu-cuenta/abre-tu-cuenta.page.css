@@ -1,0 +1,238 @@
+/* ===== Base ===== */
+.open-account {
+  color: #111827;
+  background: #ffffff;
+  min-height: 80vh;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+}
+
+/* Layout desktop */
+.open-account__wrap {
+  width: 100%;
+  max-width: 1100px;
+
+  margin-left: clamp(24px, 10vw, 200px);
+  margin-right: auto;
+
+  padding: 0 24px 80px;
+}
+
+/* Contenido */
+.open-account__content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Diagonal celeste desktop */
+.open-account::after {
+  content: '';
+  position: absolute;
+  inset: 0 0 0 auto;
+  width: 700px;
+  height: 100%;
+  background: #bce4ff;
+  clip-path: polygon(40% 0%, 100% 0%, 100% 100%, 0% 50%);
+  z-index: 0;
+}
+
+/* ===== Títulos ===== */
+.open-account__title {
+  margin: 0;
+  font-size: 35px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.open-account__subtitle {
+  margin: 0 0 26px;
+  font-size: 22px;
+  font-weight: 300;
+  color: #111827;
+  opacity: 0.9;
+}
+
+/* ===== Card gris ===== */
+.open-account__card {
+  width: min(650px, 100%);
+  height: 150px;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 0 28px;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 18px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.open-account__card-title {
+  margin: 0 0 6px;
+  padding-top: 30px;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.open-account__card-desc {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 300;
+  color: #111827;
+  opacity: 0.9;
+  line-height: 1.25;
+}
+
+/* ===== iPhone recortado ===== */
+.open-account__phone {
+  display: flex;
+  height: 100%;
+}
+
+.open-account__phone img {
+  width: 100px;
+  height: 200px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transform: translateY(35px);
+}
+
+/* ===== Badges ===== */
+.open-account__stores {
+  margin-top: 45px;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-decoration: none;
+  transition:
+    transform 0.12s ease,
+    opacity 0.12s ease;
+}
+
+.store-badge:hover {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.store-badge img {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* Tablet: reduce un poco tamaños y evita que se rompa */
+@media (max-width: 992px) {
+  .open-account::after {
+    width: 55vw;
+  }
+
+  .open-account__title {
+    font-size: 32px;
+  }
+
+  .open-account__subtitle {
+    font-size: 20px;
+  }
+
+  .open-account__wrap {
+    margin-left: clamp(24px, 6vw, 120px);
+    padding-bottom: 64px;
+  }
+}
+/* Mobile: centrado total + sin diagonal + sin iPhone */
+@media (max-width: 768px) {
+  /* ✅ Centrado total (vertical + horizontal) */
+  .open-account {
+    min-height: 50vh; /* ocupa pantalla completa */
+    padding: 24px 0; /* un poco de aire */
+    display: flex;
+    align-items: center; /* centra horizontalmente el bloque */
+    justify-content: center; /* centra verticalmente el bloque */
+  }
+
+  /* ✅ Quita figura celeste */
+  .open-account::after {
+    content: none;
+  }
+
+  /* ✅ Contenedor centrado */
+  .open-account__wrap {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    padding: 0 18px;
+  }
+
+  /* ✅ centra texto */
+  .open-account__content {
+    text-align: center;
+  }
+
+  .open-account__title {
+    font-size: 28px;
+  }
+
+  .open-account__subtitle {
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+
+  /* ✅ Card centrada y contenido centrado */
+  .open-account__card {
+    width: 100%;
+    height: auto;
+    grid-template-columns: 1fr; /* una columna */
+    padding: 18px;
+    text-align: center;
+    place-items: center; /* centra items del grid */
+    gap: 10px;
+    margin-top: 30px;
+  }
+
+  .open-account__card-title {
+    padding-top: 0;
+    font-size: 20px;
+    margin: 0;
+  }
+
+  .open-account__card-desc {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  /* ✅ Quita mockup iPhone */
+  .open-account__phone {
+    display: none;
+  }
+
+  /* ✅ badges centradas */
+  .open-account__stores {
+    margin-top: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .store-badge img {
+    height: 52px;
+  }
+}

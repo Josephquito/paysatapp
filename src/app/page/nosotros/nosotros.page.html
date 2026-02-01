@@ -24,7 +24,9 @@
           bancarios y programas de emisión de tarjetas personalizadas, ayudando a nuestros clientes
           a mejorar su eficiencia operativa y la experiencia de usuario. Trabajamos con una red
           integrada de bancos corresponsales y socios autorizados para habilitar operación bancaria
-          y de pagos con enfoque en cumplimiento, innovación y escalabilidad.
+          y de pagos con enfoque en cumplimiento, innovación y escalabilidad. PAYSAT opera en
+          conjunto con bancos corresponsales, emisores y socios financieros autorizados y no actúa
+          como un banco tradicional.
         </p>
 
         <a class="nosotros-hero__link" href="legal-documents"> Documentacion legal </a>
@@ -38,22 +40,20 @@
       <article class="nosotros-mv__item">
         <h2 class="nosotros-mv__title">Misión</h2>
         <p class="nosotros-mv__text">
-          is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the
-          industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a
-          galley of type and scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting, remaining essentially
-          unchanged…
+          Impulsar la inclusión y eficiencia financiera a nivel global mediante soluciones de banca
+          digital multidivisa, pagos y emisión de tarjetas seguras, escalables y personalizables,
+          que permitan a empresas, instituciones financieras y usuarios operar y gestionar fondos de
+          forma confiable en mercados internacionales.
         </p>
       </article>
 
       <article class="nosotros-mv__item">
         <h2 class="nosotros-mv__title">Visión</h2>
         <p class="nosotros-mv__text">
-          is simply dummy text of the printing and typesetting industry. Lorem ipsum has been the
-          industry&apos;s standard dummy text ever since the 1500s, when an unknown printer took a
-          galley of type and scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting, remaining essentially
-          unchanged…
+          Ser una plataforma líder en tecnología financiera global, habilitando ecosistemas de banca
+          digital, pagos inteligentes y emisión de tarjetas interoperables, que conecten personas,
+          empresas e instituciones a servicios financieros modernos, seguros y sin fronteras,
+          impulsando nuevos modelos de negocio para la economía digital.
         </p>
       </article>
     </div>
@@ -101,52 +101,28 @@
   </section>
 
   <!-- CONTACTANOS -->
-  <section class="nosotros-contacto">
-    <h2 class="nosotros-section__title">Contactanos</h2>
+  <section class="nosotros-contacto" id="contacto">
+    <h2 class="nosotros-section__title">Contáctanos</h2>
 
-    <div class="nosotros-contacto__grid">
-      <!-- Banca telefónica -->
-      <div class="nosotros-tile">
-        <div class="nosotros-tile__row">
-          <strong class="nosotros-tile__title">Banca telefónica</strong>
-        </div>
+    <!-- FORMULARIO (100%) -->
+    <div class="nosotros-contacto__form">
+      <app-contact-form
+        title="Escríbenos"
+        subtitle="Déjanos tu mensaje y nuestro equipo se pondrá en contacto contigo."
+      ></app-contact-form>
+    </div>
 
-        <a class="nosotros-tile__action" href="tel:+593000000000"> 400-400-4000 </a>
-      </div>
+    <!-- ACCIONES (Chat + Ayuda) -->
+    <div class="nosotros-contacto__actions">
+      <button class="channel-item" type="button" (click)="openChat()">
+        <span class="channel-item__title">Chat en vivo</span>
+        <span class="channel-item__meta">Soporte 24/7</span>
+      </button>
 
-      <!-- Chat Bot -->
-      <div class="nosotros-tile">
-        <div class="nosotros-tile__row">
-          <strong class="nosotros-tile__title">Chat Bot</strong>
-        </div>
-
-        <a class="nosotros-tile__action" href="#"> Iniciar chat </a>
-      </div>
-
-      <!-- WhatsApp -->
-      <div class="nosotros-tile">
-        <div class="nosotros-tile__row">
-          <strong class="nosotros-tile__title">WhatsApp</strong>
-        </div>
-
-        <a
-          class="nosotros-tile__action"
-          href="https://wa.me/593000000000"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          +593 99 888 77 66
-        </a>
-      </div>
-
-      <!-- Centro de ayuda -->
-      <div class="nosotros-tile" routerLink="/ayuda">
-        <div class="nosotros-tile__row">
-          <strong class="nosotros-tile__title">Centro de ayuda</strong>
-        </div>
-
-        <a class="nosotros-tile__action"> Ir a ayuda </a>
-      </div>
+      <button class="channel-item" type="button" routerLink="/ayuda">
+        <span class="channel-item__title">Guías de uso</span>
+        <span class="channel-item__meta">Paso a paso</span>
+      </button>
     </div>
   </section>
 

@@ -29,6 +29,7 @@ export class NavbarComponent {
     { label: 'Servicios', routerLink: '/servicios' },
     { label: 'Nosotros', routerLink: '/nosotros' },
     { label: 'Ayuda', routerLink: '/ayuda' },
+    { label: 'Abre tu cuenta', routerLink: '/Abre-tu-cuenta' },
   ];
 
   toggleMobileMenu() {

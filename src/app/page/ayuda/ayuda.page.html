@@ -101,24 +101,12 @@
   <!-- BLOQUE CONTACTO -->
   <section class="ayuda-contacto">
     <p class="ayuda-contacto__lead">No has encontrado solución? Contáctanos</p>
-
-    <div class="ayuda-contacto__grid">
-      <div class="ayuda-contacto__card">
-        <strong class="ayuda-contacto__title">Banca telefónica</strong>
-        <a class="ayuda-contacto__link" href="tel:+59340004000"> 400 4000 4000 </a>
-      </div>
-
-      <div class="ayuda-contacto__card">
-        <strong class="ayuda-contacto__title">Chat Bot</strong>
-        <button
-          class="ayuda-contacto__link ayuda-contacto__btnlink"
-          type="button"
-          (click)="openChat()"
-        >
-          Iniciar chat
-        </button>
-      </div>
+    <!-- FORMULARIO (100%) -->
+    <div class="nosotros-contacto__form">
+      <app-contact-form
+        title="Escríbenos"
+        subtitle="Déjanos tu mensaje y nuestro equipo se pondrá en contacto contigo."
+      ></app-contact-form>
     </div>
   </section>
-  <app-chat-widget></app-chat-widget>
 </main>

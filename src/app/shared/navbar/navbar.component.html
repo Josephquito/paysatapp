@@ -11,19 +11,10 @@
     <ng-template pTemplate="end">
       <div class="actions desktop-only">
         @for (item of items; track item.label) {
-        <a class="menu-link" [routerLink]="item.routerLink" routerLinkActive="active">
-          {{ item.label }}
-        </a>
+          <a class="menu-link" [routerLink]="item.routerLink" routerLinkActive="active">
+            {{ item.label }}
+          </a>
         }
-
-        <a
-          class="menu-link external"
-          href="https://www.google.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Abre tu cuenta
-        </a>
 
         <button pButton label="Banca Virtual" routerLink="/bank"></button>
       </div>
@@ -49,16 +40,6 @@
   <a class="mobile-link" routerLink="/servicios" (click)="closeMobileMenu()">Servicios</a>
   <a class="mobile-link" routerLink="/nosotros" (click)="closeMobileMenu()">Nosotros</a>
   <a class="mobile-link" routerLink="/ayuda" (click)="closeMobileMenu()">Ayuda</a>
-
-  <a
-    class="mobile-link"
-    href="https://www.google.com"
-    target="_blank"
-    rel="noopener noreferrer"
-    (click)="closeMobileMenu()"
-  >
-    Abre tu cuenta
-  </a>
-
+  <a class="mobile-link" routerLink="/Abre-tu-cuenta" (click)="closeMobileMenu()">Abre tu cuenta</a>
   <a class="mobile-link" routerLink="/bank" (click)="closeMobileMenu()">Banca Virtual</a>
 </div>

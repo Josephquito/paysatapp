@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
+import { ChatWidgetComponent } from '../chat-widget/chat-widget.component';
 
 @Component({
   selector: 'app-footer',
