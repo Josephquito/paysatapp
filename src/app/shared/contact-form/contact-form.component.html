@@ -12,6 +12,7 @@
             El nombre es obligatorio
           </small>
         </div>
+
         <div class="field">
           <label class="field__label">Apellido</label>
           <input class="field__input" type="text" formControlName="lastName" />
@@ -46,7 +47,15 @@
         </div>
       </div>
 
-      <button class="btn-primary" type="submit">Enviar mensaje</button>
+      <button class="btn-primary" type="submit" [disabled]="loading">
+        {{ loading ? 'Enviando...' : 'Enviar mensaje' }}
+      </button>
+
+      <!-- ✅ Solo agrego feedback, sin cambiar tu estilo -->
+      <small class="field__error" *ngIf="errorMsg"> {{ errorMsg }} </small>
+      <small class="field__success" *ngIf="successId">
+        Mensaje enviado correctamente. Un asesor se contactará contigo pronto.
+      </small>
     </form>
   </div>
 </section>
