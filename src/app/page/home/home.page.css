@@ -87,10 +87,320 @@
 }
 
 /* =========================
+   SOLUCIONES
+========================= */
+.solutions {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.solutions__title {
+  font-size: 32px;
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+
+/* subtítulo opcional si lo usas */
+.solutions__subtitle {
+  max-width: 760px;
+  margin: 0 auto 48px;
+  font-size: 17px;
+  color: #555;
+}
+
+.solutions__grid {
+  max-width: 1200px; /* 👈 más ancho para que entren 5 */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 👈 clave */
+  gap: 10px;
+}
+
+.solution__icon {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 14px;
+  background-color: #bce4ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solution__icon img {
+  width: 70px;
+}
+
+.solution p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* =========================
+   ROADMAP – CÓMO FUNCIONA
+========================= */
+.road {
+  padding: 50px 0 40px;
+}
+
+.road__wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.road__title {
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.road__subtitle {
+  margin: 12px auto 44px;
+  max-width: 760px;
+  font-size: 17px;
+  color: #555;
+}
+
+.road__line {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.road__line::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(0, 0, 0, 0.12);
+  transform: translateX(-50%);
+}
+
+.road__step {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 120px 1fr;
+  align-items: center;
+  margin: 18px 0;
+}
+
+.road__badge {
+  grid-column: 2;
+  width: 54px;
+  height: 54px;
+  margin: 0 auto;
+  border-radius: 14px;
+  background: #bce4ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.road__card {
+  background: #fff;
+  padding: 18px 18px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  text-align: left;
+  max-width: 360px;
+}
+
+.road__card h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.road__card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0.9;
+}
+
+.road__step:not(.road__step--right) .road__card {
+  grid-column: 1;
+  justify-self: end;
+}
+
+.road__step.road__step--right .road__card {
+  grid-column: 3;
+  justify-self: start;
+}
+
+.road__note {
+  max-width: 980px;
+  margin: 26px auto 0;
+  font-size: 14px;
+  color: #444;
+  opacity: 0.9;
+}
+
+/* =========================
+   DIFERENCIALES + CASOS DE USO
+========================= */
+.diff {
+  padding: 80px 0 70px;
+  background: #f7f9fc;
+}
+
+.diff__wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.diff__head {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.diff__title {
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.diff__subtitle {
+  max-width: 820px;
+  margin: 12px auto 0;
+  font-size: 17px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Diferenciales */
+.diff__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.diff-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 22px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  text-align: left;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.diff-card__top {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 12px;
+}
+
+.diff-card__tag {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(29, 161, 242, 0.12);
+  color: #0a70af;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.diff-card__title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.diff-card__text {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Casos de uso */
+.usecases {
+  margin-top: 32px;
+}
+
+.usecases__head {
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 18px;
+  margin: 30px 0 16px;
+}
+
+.usecases__title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.usecases__subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.usecases__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.usecase {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.usecase__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(188, 228, 255, 0.9);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.usecase__text {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* CTA pequeño */
+.diff__cta {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.diff__link {
+  color: #1da1f2;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* =========================
    QUICK CARDS
 ========================= */
 .quick-cards {
-  padding: 80px 0;
+  padding: 80px 0 0;
 }
 
 .quick-cards__grid {
@@ -131,6 +441,7 @@
    ABOUT – ¿QUÉ ES PAYSAT?
 ========================= */
 .about {
+  padding-top: 28px;
   padding-bottom: 80px;
 }
 
@@ -164,7 +475,7 @@
 
 .about__content h1 {
   font-size: 40px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.2;
   margin-bottom: 20px;
   margin-top: 0px;
@@ -178,63 +489,45 @@
 }
 
 /* =========================
-   SOLUCIONES
-========================= */
-.solutions {
-  padding-bottom: 80px;
-  text-align: center;
-}
-
-.solutions__title {
-  font-size: 32px;
-  font-weight: 400;
-  margin-bottom: 48px;
-}
-
-.solutions__grid {
-  max-width: 1000px;
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 50px;
-}
-
-.solution__icon {
-  width: 130px;
-  height: 130px;
-  margin: 0 auto 12px;
-  background-color: #bce4ff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.solution__icon img {
-  width: 90px;
-}
-
-.solution p {
-  font-size: 15px;
-  font-weight: 500;
-}
-
-/* =========================
-   CTA FINAL
+   CTA FINAL (IMG EN HTML)
 ========================= */
 .cta {
-  padding-bottom: 80px;
+  padding: 80px 0;
 }
 
 .cta__card {
-  max-width: 1000px;
+  position: relative;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 60px 80px;
-  background-color: #000000;
+  padding: 70px 90px;
   border-radius: 24px;
-  color: #fff;
+  overflow: hidden;
   text-align: center;
+  color: #fff;
+}
+
+/* Imagen */
+.cta__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Overlay */
+.cta__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.45));
+  z-index: 1;
+}
+
+/* Contenido */
+.cta__content {
+  position: relative;
+  z-index: 2;
 }
 
 .cta__eyebrow {
@@ -248,63 +541,16 @@
 .cta__title {
   font-size: 40px;
   font-weight: 600;
-  line-height: 1;
-  margin-top: 12px;
-  margin-bottom: 28px;
+  line-height: 1.1;
+  margin: 14px 0 28px;
 }
 
 /* =========================
    RESPONSIVE
-========================= */
-@media (max-width: 1024px) {
-  .hero__content,
-  .quick-cards__grid,
-  .about__grid {
-    padding: 0 28px;
-  }
-
-  .hero__content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .quick-cards__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .about__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .solutions__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 640px) {
-  .hero {
-    padding: 60px 0 80px;
-  }
-
-  .hero__text h1 {
-    font-size: 36px;
-  }
-
-  .cta__card {
-    padding: 40px 28px;
-  }
-
-  .cta__title {
-    font-size: 28px;
-  }
-}
-
-/* =========================
-   RESPONSIVE ONLY (NO DESKTOP CHANGES)
-   Breakpoints: 1024 / 768 / 640 / 480
+   Breakpoints: 1024 / 768 / 640
 ========================= */
 
-/* ====== <= 1024px (tablet landscape / small laptop) ====== */
+/* ====== <= 1024px ====== */
 @media (max-width: 1024px) {
   /* Layout padding general */
   .hero__content,
@@ -316,7 +562,7 @@
     padding-right: 28px;
   }
 
-  /* HERO: stack */
+  /* HERO */
   .hero {
     padding: 72px 0 0;
   }
@@ -335,7 +581,7 @@
   .hero__visual {
     width: min(490px, 100%);
     height: 380px;
-    margin-bottom: 0; /* evita que se corte en tablet */
+    margin-bottom: 0;
   }
 
   .hero__phone {
@@ -353,13 +599,13 @@
     transform: scale(0.92);
   }
 
-  /* CARDS: 1 columna */
+  /* QUICK CARDS */
   .quick-cards__grid {
     grid-template-columns: 1fr;
     gap: 22px;
   }
 
-  /* ABOUT: 1 columna */
+  /* ABOUT */
   .about__grid {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -370,12 +616,25 @@
     max-width: 520px;
   }
 
-  /* SOLUTIONS: 2 columnas */
+  /* SOLUTIONS */
   .solutions__grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 28px;
     padding-left: 28px;
     padding-right: 28px;
+  }
+
+  /* DIFERENCIALES */
+  .diff__wrap {
+    padding: 0 28px;
+  }
+
+  .diff__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .usecases__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
   /* CTA */
@@ -384,7 +643,7 @@
   }
 }
 
-/* ====== <= 768px (tablet portrait) ====== */
+/* ====== <= 768px ====== */
 @media (max-width: 768px) {
   .hero__text h1 {
     font-size: 40px;
@@ -433,7 +692,7 @@
   }
 }
 
-/* ====== <= 640px (mobile) ====== */
+/* ====== <= 640px ====== */
 @media (max-width: 640px) {
   .hero {
     padding: 56px 0 0;
@@ -491,6 +750,32 @@
   .solutions__grid {
     grid-template-columns: 1fr;
     gap: 22px;
+  }
+
+  .diff {
+    padding: 56px 0 44px;
+  }
+
+  .diff__wrap {
+    padding: 0 18px;
+  }
+
+  .diff__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .usecases__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .usecases__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .diff__cta {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .cta {

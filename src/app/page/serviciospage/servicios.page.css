@@ -102,29 +102,13 @@
   margin: 12px 0 0;
 }
 
-/* Link abajo a la derecha como el objetivo */
-.hero-card__link {
-  margin: 0;
-  justify-self: end;
-  align-self: end;
-  padding-bottom: 26px;
-
-  font-size: 18px;
-  font-weight: 500;
-  color: #111827;
-  text-decoration: none;
-}
-
-.hero-card__link:hover {
-  text-decoration: underline;
-}
-
 .hero-card .arrow {
   display: inline-block;
   margin-left: 10px;
   transform: translateY(2px);
   font-size: 26px;
 }
+
 /* ====== Sections ====== */
 
 .section--tight {
@@ -148,53 +132,91 @@
 }
 
 /* ====== Servicios grid ====== */
+/* ====== Servicios grid ====== */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
+  gap: 22px;
+  align-items: stretch;
 }
 
+/* Card */
 .service-card {
-  padding: 16px 16px 14px;
-  background-color: #fafafa;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px 22px 20px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  text-align: left;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
 }
 
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+  border-color: rgba(29, 161, 242, 0.25);
+}
+
+/* Kicker */
 .service-card__kicker {
-  margin: 0 0 6px;
-  font-size: 11px;
-  color: #6b7280;
-  font-weight: 600;
-}
-
-.service-card__title {
-  margin: 0 0 4px;
-  font-size: 18px;
-  font-weight: 500;
-}
-
-.service-card__subtitle {
-  margin: 0 0px 10px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #4b5563;
-}
-
-.service-card__text {
-  margin: 0 30px 10px;
+  margin: 0 0 10px;
   font-size: 12px;
-  line-height: 1.5;
-  color: #4b5563;
-  text-align: justify;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0a70af;
+  opacity: 0.9;
 }
 
-.service-card__link {
-  display: inline-block;
-  margin-top: 2px;
+/* Title */
+.service-card__title {
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #0f172a;
+}
+
+/* Subtitle */
+.service-card__subtitle {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #334155;
+  opacity: 0.95;
+}
+
+/* Text */
+.service-card__text {
+  margin: 0;
   font-size: 14px;
-  font-weight: 400;
-  color: #1ca4ff;
+  line-height: 1.6;
+  color: #475569;
+  opacity: 0.95;
+
+  /* Para que todas las cards queden visualmente parejas */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Si en algún momento usas link dentro de la card */
+.service-card__link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #1da1f2;
   text-decoration: none;
 }
 
@@ -204,20 +226,29 @@
 
 /* ====== Ver más ====== */
 .see-more {
-  padding-top: 20px;
+  padding-top: 26px;
   text-align: center;
 }
 
 .see-more__link {
   display: inline-block;
-  font-size: 17px;
-  font-weight: 600;
-  color: #414141;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  font-size: 15px;
+  font-weight: 800;
+  color: #0f172a;
   text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
 .see-more__link:hover {
-  text-decoration: underline;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 38px rgba(0, 0, 0, 0.08);
 }
 
 /* ====== Agilita tus transacciones ====== */
@@ -246,7 +277,10 @@
   border-radius: 6px;
   padding: 18px 25px;
   cursor: pointer;
-  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease;
 }
 
 .channel-item:hover {
