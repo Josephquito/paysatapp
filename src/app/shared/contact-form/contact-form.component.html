@@ -7,42 +7,109 @@
       <div class="contact__grid">
         <div class="field">
           <label class="field__label">Nombre</label>
-          <input class="field__input" type="text" formControlName="name" />
+          <input
+            class="field__input"
+            type="text"
+            formControlName="name"
+            maxlength="60"
+            autocomplete="given-name"
+            (keydown)="blockInvalidKey($event, 'name')"
+            (paste)="blockInvalidPaste($event, 'name')"
+          />
           <small class="field__error" *ngIf="hasError('name', 'required')">
             El nombre es obligatorio
+          </small>
+          <small class="field__error" *ngIf="hasError('name', 'pattern')">
+            Solo letras y caracteres permitidos ( . - ' )
+          </small>
+          <small class="field__error" *ngIf="hasError('name', 'minlength')">
+            Mínimo 2 caracteres
           </small>
         </div>
 
         <div class="field">
           <label class="field__label">Apellido</label>
-          <input class="field__input" type="text" formControlName="lastName" />
+          <input
+            class="field__input"
+            type="text"
+            formControlName="lastName"
+            maxlength="60"
+            autocomplete="family-name"
+            (keydown)="blockInvalidKey($event, 'lastName')"
+            (paste)="blockInvalidPaste($event, 'lastName')"
+          />
           <small class="field__error" *ngIf="hasError('lastName', 'required')">
             El apellido es obligatorio
+          </small>
+          <small class="field__error" *ngIf="hasError('lastName', 'pattern')">
+            Solo letras y caracteres permitidos ( . - ' )
+          </small>
+          <small class="field__error" *ngIf="hasError('lastName', 'minlength')">
+            Mínimo 2 caracteres
           </small>
         </div>
 
         <div class="field">
           <label class="field__label">Correo</label>
-          <input class="field__input" type="email" formControlName="email" />
+          <input
+            class="field__input"
+            type="email"
+            formControlName="email"
+            maxlength="120"
+            autocomplete="email"
+            (keydown)="blockInvalidKey($event, 'email')"
+            (paste)="blockInvalidPaste($event, 'email')"
+          />
           <small class="field__error" *ngIf="hasError('email', 'required')">
             El correo es obligatorio
           </small>
           <small class="field__error" *ngIf="hasError('email', 'email')"> Correo inválido </small>
+          <small class="field__error" *ngIf="hasError('email', 'pattern')">
+            Correo inválido (caracteres no permitidos)
+          </small>
         </div>
 
         <div class="field">
           <label class="field__label">Teléfono</label>
-          <input class="field__input" type="tel" formControlName="phone" />
+          <input
+            class="field__input"
+            type="tel"
+            formControlName="phone"
+            maxlength="25"
+            autocomplete="tel"
+            (keydown)="blockInvalidKey($event, 'phone')"
+            (paste)="blockInvalidPaste($event, 'phone')"
+          />
           <small class="field__error" *ngIf="hasError('phone', 'required')">
             El teléfono es obligatorio
+          </small>
+          <small class="field__error" *ngIf="hasError('phone', 'pattern')">
+            Solo números y caracteres permitidos (+ - ( ) espacios)
+          </small>
+          <small class="field__error" *ngIf="hasError('phone', 'minlength')">
+            Mínimo 7 caracteres
           </small>
         </div>
 
         <div class="field field--full">
           <label class="field__label">Mensaje</label>
-          <textarea class="field__textarea" rows="5" formControlName="message"></textarea>
+          <textarea
+            class="field__textarea"
+            rows="5"
+            formControlName="message"
+            maxlength="800"
+            (keydown)="blockInvalidKey($event, 'message')"
+            (paste)="blockInvalidPaste($event, 'message')"
+          ></textarea>
+
           <small class="field__error" *ngIf="hasError('message', 'required')">
             El mensaje es obligatorio
+          </small>
+          <small class="field__error" *ngIf="hasError('message', 'minlength')">
+            Mínimo 10 caracteres
+          </small>
+          <small class="field__error" *ngIf="hasError('message', 'pattern')">
+            Caracteres no permitidos en el mensaje
           </small>
         </div>
       </div>
@@ -51,8 +118,8 @@
         {{ loading ? 'Enviando...' : 'Enviar mensaje' }}
       </button>
 
-      <!-- ✅ Solo agrego feedback, sin cambiar tu estilo -->
-      <small class="field__error" *ngIf="errorMsg"> {{ errorMsg }} </small>
+      <small class="field__error" *ngIf="errorMsg">{{ errorMsg }}</small>
+
       <small class="field__success" *ngIf="successId">
         Mensaje enviado correctamente. Un asesor se contactará contigo pronto.
       </small>
