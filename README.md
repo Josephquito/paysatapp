@@ -1,59 +1,113 @@
-# Paysat
+# Paysat – Frontend Web
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+Este proyecto corresponde al **frontend web de Paysat**, desarrollado en **Angular** y desplegado actualmente en el dominio oficial.
 
-## Development server
+El objetivo del proyecto es presentar información institucional, los servicios ofrecidos por la empresa y permitir la interacción de los usuarios mediante un **formulario de contacto** y un **chatbot**.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
+## Tecnologías utilizadas
+
+- **Angular** (Angular CLI v21.0.4)
+- **PrimeNG** (librería de componentes UI)
+- **TypeScript**
+- **HTML / SCSS**
+
+---
+
+## Estructura del proyecto
+
+La estructura del proyecto se encuentra organizada de la siguiente manera:
+
+src/
+├── app/
+│ ├── page/ # Páginas principales del sitio
+│ ├── shared/ # Componentes compartidos
+│ ├── services/ # Servicios para consumo de APIs
+│ ├── app.routes.ts # Definición de rutas
+│ └── app.config.ts
+
+### Carpeta `shared`
+
+Contiene todos los **componentes reutilizables** del sistema, tales como:
+
+- Navbar
+- Footer
+- Chatbot
+- Formulario de contacto
+
+### Carpeta `page`
+
+Contiene las **páginas principales** del sitio web:
+
+- Home
+- Servicios
+- Nosotros
+- Ayuda
+- Documentos legales
+- Abrir cuenta
+
+---
+
+## Rutas de la aplicación
+
+La aplicación utiliza **lazy loading** mediante `loadComponent`.  
+Las rutas actualmente disponibles son las siguientes:
+
+```ts
+import { Routes } from '@angular/router';
+
+export const routes: Routes = [
+  {
+    path: 'home',
+    loadComponent: () => import('./page/home/home.page').then((m) => m.HomePage),
+  },
+  {
+    path: 'servicios',
+    loadComponent: () => import('./page/serviciospage/servicios.page').then((m) => m.ServiciosPage),
+  },
+  {
+    path: 'nosotros',
+    loadComponent: () => import('./page/nosotros/nosotros.page').then((m) => m.NosotrosPage),
+  },
+  {
+    path: 'ayuda',
+    loadComponent: () => import('./page/ayuda/ayuda.page').then((m) => m.AyudaPage),
+  },
+  {
+    path: 'legal-documents',
+    loadComponent: () =>
+      import('./page/legal documents/legal-documents.page').then((m) => m.LegalDocumentsPage),
+  },
+  {
+    path: 'Abre-tu-cuenta',
+    loadComponent: () =>
+      import('./page/abre-tu-cuenta/abre-tu-cuenta.page').then((m) => m.AbreTuCuentaPage),
+  },
+  { path: '', pathMatch: 'full', redirectTo: 'home' },
+];
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Autenticación
 
-## Code scaffolding
+Este proyecto no maneja autenticación (Auth), ya que no es requerida para el alcance actual del sitio web.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Consumo de APIs
 
-```bash
-ng generate component component-name
-```
+La aplicación consume dos APIs externas, gestionadas mediante servicios Angular ubicados en la carpeta services:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+API de formulario de contacto
+Utilizada para el envío de mensajes desde el formulario web.
 
-```bash
-ng generate --help
-```
+API de chatbot
+Utilizada para la interacción del usuario con el chatbot.
 
-## Building
+Las URLs de estas APIs se gestionan mediante variables de entorno.
 
-To build the project run:
+## Notas adicionales
 
-```bash
-ng build
-```
+El proyecto utiliza PrimeNG como librería principal de componentes visuales.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+La arquitectura está pensada para facilitar el mantenimiento y la reutilización de componentes.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+No se almacenan credenciales ni información sensible dentro del repositorio.
