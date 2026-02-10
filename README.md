@@ -20,11 +20,17 @@ El objetivo del proyecto es presentar información institucional, los servicios 
 La estructura del proyecto se encuentra organizada de la siguiente manera:
 
 src/
+
 ├── app/
+
 │ ├── page/ # Páginas principales del sitio
+
 │ ├── shared/ # Componentes compartidos
+
 │ ├── services/ # Servicios para consumo de APIs
+
 │ ├── app.routes.ts # Definición de rutas
+
 │ └── app.config.ts
 
 ### Carpeta `shared`
