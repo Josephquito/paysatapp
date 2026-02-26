@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  chatApiUrl: 'http://localhost:3001/chat',
+  chatApiUrl: 'https://mz-chatbot-paysat-2026.onrender.com/chat',
   formApiUrl: 'https://web-contactform-api.onrender.com',
 };
