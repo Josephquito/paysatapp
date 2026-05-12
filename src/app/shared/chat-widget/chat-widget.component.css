@@ -3,7 +3,7 @@
   position: fixed;
   right: 22px;
   bottom: 22px;
-  z-index: var(--chat-z);
+  z-index: 1000000;
 
   display: inline-flex;
   align-items: center;
@@ -16,7 +16,7 @@
   background: #111827;
   color: #fff;
 
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   cursor: pointer;
   user-select: none;
 }
@@ -46,7 +46,7 @@
   position: fixed;
   right: 22px;
   bottom: 86px;
-  z-index: 10001;
+  z-index: 999999;
   border-radius: 10px;
   width: 380px;
   height: 560px;
@@ -81,15 +81,12 @@
   gap: 10px;
 }
 
-.chat-panel__dot {
-  /* reemplazar por logo de paysat */
-}
-
 .chat-panel__title {
   font-weight: 500;
   font-size: 18px;
   color: #ffffff;
 }
+
 .chat-panel__subtitle {
   font-size: 12px;
   color: rgba(255, 255, 255, 0.75);
@@ -206,7 +203,7 @@
   padding: 12px;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
   background: #fff;
-  align-items: flex-end; /* 👈 importante */
+  align-items: flex-end;
 }
 
 .chat-input {
@@ -232,8 +229,6 @@ textarea.chat-input {
   font-size: 14px;
   line-height: 1.35;
   color: #111827;
-
-  /* evita look “textarea default” */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -250,11 +245,11 @@ textarea.chat-input {
   display: flex;
 }
 
-/* ===== BACKDROP (móvil) ===== */
+/* ===== BACKDROP ===== */
 .chat-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 10000;
+  z-index: 999998;
   display: none;
   background: rgba(0, 0, 0, 0.38);
   opacity: 0;
@@ -267,7 +262,7 @@ textarea.chat-input {
   pointer-events: auto;
 }
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 520px) {
   .chat-panel {
     right: 12px;
@@ -281,8 +276,8 @@ textarea.chat-input {
     right: 12px;
     bottom: 14px;
   }
-}
 
-.chat-backdrop {
-  display: block;
+  .chat-backdrop {
+    display: block;
+  }
 }

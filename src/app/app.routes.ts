@@ -27,5 +27,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./page/abre-tu-cuenta/abre-tu-cuenta.page').then((m) => m.AbreTuCuentaPage),
   },
+  {
+    path: 'politica-de-privacidad',
+    loadComponent: () =>
+      import('./page/privacy-policy/privacy-policy.page').then((m) => m.PrivacyPolicyPage),
+  },
   { path: '', pathMatch: 'full', redirectTo: 'home' },
 ];

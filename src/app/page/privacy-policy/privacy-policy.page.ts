@@ -3,8 +3,8 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   standalone: true,
-  templateUrl: './legal-documents.page.html',
-  styleUrls: ['./legal-documents.page.css'],
+  templateUrl: './privacy-policy.page.html',
+  styleUrls: ['./privacy-policy.page.css'],
   imports: [RouterLink],
 })
-export class LegalDocumentsPage {}
+export class PrivacyPolicyPage {}
