@@ -1,11 +1,11 @@
-/* CONTENEDOR GENERAL */
+/* ===== Footer ===== */
+
 .footer {
-  background-color: #1da1f2;
-  color: white;
-  padding: 30px 80px 0px;
+  background: var(--color-bg-section);
+  color: var(--color-text);
+  padding: 30px 80px 0;
 }
 
-/* FILA SUPERIOR */
 .footer-main {
   display: flex;
   justify-content: space-between;
@@ -13,7 +13,6 @@
   flex-wrap: wrap;
 }
 
-/* COLUMNAS */
 .footer-col {
   display: flex;
   flex-direction: column;
@@ -22,51 +21,46 @@
 }
 
 .footer-col h4 {
-  margin-top: 0px;
+  margin-top: 0;
 }
 
 .app-text p {
-  margin: 0px 0px 8px;
-  gap: 0px;
-}
-.app-text h4 {
-  margin: 0px;
-  gap: 0px;
+  margin: 0 0 8px;
 }
 
-/* LOGO */
+.app-text h4 {
+  margin: 0;
+}
+
 .footer-logo {
   width: 250px;
-  margin-bottom: 0px;
+  margin-bottom: 0;
   transform: scale(1.15);
   transform-origin: center;
 }
 
-/* LINKS */
 .footer a {
-  color: white;
+  color: var(--color-text-secondary);
   text-decoration: none;
   font-size: 17px;
-  font-weight: 300;
+  font-weight: var(--font-weight-light);
 }
 
 .footer a:hover {
+  color: var(--primary-color);
   text-decoration: underline;
 }
 
-/* TÍTULOS */
 .footer h4 {
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 0px;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: 0;
 }
 
-/* APP */
 .footer-app p {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
-/* BOTONES STORE */
 .store-buttons {
   display: flex;
   gap: 12px;
@@ -78,7 +72,6 @@
   cursor: pointer;
 }
 
-/* TELÉFONO */
 .phone-img {
   width: 250px;
   height: 250px;
@@ -88,35 +81,22 @@
   margin-bottom: -79px;
 }
 
-/* COPYRIGHT ABAJO DE TODO */
 .footer-copy {
   width: 100%;
   font-size: 15px;
   text-align: left;
   opacity: 0.8;
-  margin: 30px 0px 20px 0px;
+  margin: 30px 0 20px;
 }
 
-/* =========================
-   FOOTER – MOBILE ONLY
-   Mantiene diseño y oculta imagen
-========================= */
+/* ===== RESPONSIVE ===== */
 
-/* Tablets pequeñas + móviles */
 @media (max-width: 1024px) {
   .phone-img {
     display: none;
   }
 }
 
-/* Tablets */
-@media (max-width: 768px) {
-  .phone-img {
-    display: none;
-  }
-}
-
-/* Móviles grandes */
 @media (max-width: 640px) {
   .footer {
     padding: 28px 30px 16px;
@@ -142,23 +122,19 @@
   .footer-logo {
     width: 200px;
     transform: none;
-    transform-origin: center;
     margin-bottom: 6px;
   }
 
   .store-buttons {
-    display: flex;
     justify-content: center;
-    gap: 12px;
-    margin-bottom: 10px;
     flex-wrap: wrap;
+    margin-bottom: 10px;
   }
 
   .store-buttons img {
     height: 38px;
   }
 
-  /* Ocultar mockup */
   .phone-img {
     display: none;
   }
@@ -170,55 +146,41 @@
   }
 }
 
-/* Móviles pequeños */
 @media (max-width: 480px) {
   .phone-img {
     display: none;
   }
 }
 
-/* ====== Footer: 654px a 965px ======
-   Objetivo: "PAYSAT App" abajo y centrado
-*/
 @media (min-width: 654px) and (max-width: 965px) {
-  /* Permite que el bloque App baje a la siguiente fila */
   .footer-main {
-    display: flex; /* por si tu desktop ya es flex */
     flex-wrap: wrap;
     align-items: flex-start;
     column-gap: 40px;
     row-gap: 22px;
   }
 
-  /* Mantén las 2 columnas arriba */
   .footer-col {
-    flex: 1 1 320px; /* 2 columnas en la primera fila */
+    flex: 1 1 320px;
     max-width: 50%;
   }
 
-  /* PAYSAT App abajo y centrado */
   .app-text {
     flex: 0 0 100%;
     max-width: 100%;
     width: 100%;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-
     margin-top: 6px;
   }
 
-  /* Botones centrados */
   .store-buttons {
-    display: flex;
     justify-content: center;
-    gap: 12px;
     flex-wrap: wrap;
   }
 
-  /* Copyright abajo del todo */
   .footer-copy {
     flex: 0 0 100%;
     width: 100%;

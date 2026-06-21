@@ -25,7 +25,7 @@ export class ServiciosPage {
       title: 'Banca directa multidivisa (USD, EUR, GBP y más)',
       text1: 'Acceda a una plataforma para operar en múltiples divisas con control corporativo.',
       text2:
-        'PAYSAT ofrece banca multidivisa para instituciones financieras y corporaciones a nivel mundial, con acceso a cuentas y operación desde un entorno administrativo en línea disponible 24/7. Diseñado para gestionar saldos y operaciones en distintas divisas y escalar por volumen con precios competitivos.',
+        'Paysat Money LTD ofrece banca multidivisa para instituciones financieras y corporaciones a nivel mundial, con acceso a cuentas y operación desde un entorno administrativo en línea disponible 24/7. Diseñado para gestionar saldos y operaciones en distintas divisas y escalar por volumen con precios competitivos.',
       linkText: 'Conoce más sobre banca multidivisa',
       href: '/servicios',
     },
@@ -42,7 +42,7 @@ export class ServiciosPage {
       kicker: 'Transferencias',
       title: 'Transferencias de entrada y salida (SWIFT, ACH, SEPA y pagos rápidos)',
       text1:
-        'Envíe y reciba transferencias nacionales e internacionales con los principales “rails”.',
+        'Envíe y reciba transferencias nacionales e internacionales con los principales "rails".',
       text2:
         'Habilite servicios de transferencia de dinero entrante y saliente (internacionales y nacionales) a través de: SWIFT (MT103), ACH, SEPA, SEPA Instantánea y esquemas de Pagos más rápidos. Además, existen servicios adicionales de traslados nacionales según el país, el tipo de cliente y la industria atendida.',
       linkText: 'Conoce más sobre transferencias',
@@ -54,7 +54,7 @@ export class ServiciosPage {
       text1:
         'Guarde fondos y gestione divisas desde una billetera electrónica conectada al ecosistema.',
       text2:
-        'PAYSAT ofrece servicios de billetera electrónica para apoyar la operación de depósitos, transferencias y pagos. Según la cobertura, permite mantener fondos en distintas divisas y vincular la operación con cuentas bancarias y canales de transferencia para facilitar flujos internacionales.',
+        'Paysat Money LTD ofrece servicios de billetera electrónica para apoyar la operación de depósitos, transferencias y pagos. Según la cobertura, permite mantener fondos en distintas divisas y vincular la operación con cuentas bancarias y canales de transferencia para facilitar flujos internacionales.',
       linkText: 'Conoce más sobre billetera',
       href: '/servicios',
     },
@@ -70,9 +70,9 @@ export class ServiciosPage {
     {
       kicker: 'Tarjetas prepago',
       title: 'Programas de tarjetas de débito prepagas (físicas, virtuales y móviles)',
-      text1: 'Lance programas personalizados y “llave en mano” para empresas e instituciones.',
+      text1: 'Lance programas personalizados y "llave en mano" para empresas e instituciones.',
       text2:
-        'PAYSAT ofrece un conjunto completo de soluciones de tarjetas de débito prepagadas: físicas, virtuales y móviles. Estas soluciones apoyan pagos a empleados, reembolsos, programas de incentivos/recompensas y gastos corporativos. El servicio incluye gestión del procesamiento y componentes operativos del programa.',
+        'Paysat Money LTD ofrece un conjunto completo de soluciones de tarjetas de débito prepagadas: físicas, virtuales y móviles. Estas soluciones apoyan pagos a empleados, reembolsos, programas de incentivos/recompensas y gastos corporativos. El servicio incluye gestión del procesamiento y componentes operativos del programa.',
       linkText: 'Conoce más sobre emisión',
       href: '/servicios',
     },
@@ -90,7 +90,7 @@ export class ServiciosPage {
       title: 'Cumplimiento normativo + gestión de riesgos y fraude',
       text1: 'Operación del programa con enfoque en controles y administración de riesgo.',
       text2:
-        'El servicio de programas de tarjetas contempla cumplimiento normativo, gestión de riesgos y responsabilidad por fraude. PAYSAT se enfoca en operar programas que atienden necesidades exigentes, incluyendo categorías de negocios de riesgo medio y alto, con soporte operativo y control del programa.',
+        'El servicio de programas de tarjetas contempla cumplimiento normativo, gestión de riesgos y responsabilidad por fraude. Paysat Money LTD se enfoca en operar programas que atienden necesidades exigentes, incluyendo categorías de negocios de riesgo medio y alto, con soporte operativo y control del programa.',
       linkText: 'Conoce más sobre riesgo y cumplimiento',
       href: '/servicios',
     },
@@ -118,7 +118,7 @@ export class ServiciosPage {
       text1:
         'Opciones para tarjeta virtual en móvil, transferencias entre tarjetas y billetera móvil.',
       text2:
-        'Se describe a PAYSAT a la vanguardia de los pagos móviles, ofreciendo soluciones de entrega electrónica seguras y en tiempo real. Esto incluye escenarios como tarjeta virtual enviada a un dispositivo móvil, transferencias entre tarjetas o pagos a través de una billetera móvil.',
+        'Se describe a Paysat a la vanguardia de los pagos móviles, ofreciendo soluciones de entrega electrónica seguras y en tiempo real. Esto incluye escenarios como tarjeta virtual enviada a un dispositivo móvil, transferencias entre tarjetas o pagos a través de una billetera móvil.',
       linkText: 'Conoce más sobre pagos móviles',
       href: '/servicios',
     },

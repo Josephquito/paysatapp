@@ -1,64 +1,79 @@
-/* ===== Base ===== */
+/* ===== Pagina de documentos legales ===== */
+
 .legal {
-  background: #ffffff;
-  color: #111827;
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
-/* Contenedor centrado como el boceto */
 .legal__wrap {
-  width: min(920px, calc(100% - 48px));
+  max-width: var(--max-width-md);
   margin: 0 auto;
-  padding: 26px 0 56px;
+  padding: var(--space-lg) var(--container-px) var(--space-xl);
 }
 
-/* Título centrado */
 .legal__title {
-  margin: 0 0 26px;
+  margin: 0 0 var(--space-lg);
   text-align: center;
-  font-size: 32px;
-  font-weight: 400;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-regular);
 }
 
-/* Bloques */
 .legal-block + .legal-block {
-  margin-top: 22px; /* separación entre secciones */
+  margin-top: var(--space-sm);
 }
 
-/* Heading de sección */
 .legal-block__heading {
   margin: 0 0 12px;
-  font-size: 20px;
-  font-weight: 500;
-  color: #111827;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
 }
 
-/* Caja gris */
 .legal-card {
-  background: #eeeeee; /* gris del boceto */
-  border-radius: 6px;
-  padding: 22px 30px 18px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-card);
+  border-radius: var(--radius-lg);
+  padding: 24px 28px;
 }
 
-/* Texto */
 .legal-card__text {
   margin: 0;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.5;
-  color: #111827;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-light);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
 }
 
-/* Link "Conocer más" abajo a la derecha */
 .legal-card__more {
   display: block;
-  margin-top: 10px;
+  margin-top: 12px;
   text-align: right;
-  font-size: 14px;
-  font-weight: 400;
-  color: #1ca4ff;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--primary-color);
   text-decoration: none;
 }
 
 .legal-card__more:hover {
+  color: var(--primary-color-dark);
   text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 640px) {
+  .legal__wrap {
+    padding: var(--space-md) var(--container-px) var(--space-lg);
+  }
+
+  .legal__title {
+    font-size: 26px;
+    margin-bottom: var(--space-md);
+  }
+
+  .legal-card {
+    padding: 20px 22px;
+  }
 }

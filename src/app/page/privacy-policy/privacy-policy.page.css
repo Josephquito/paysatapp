@@ -1,94 +1,128 @@
-/* Reutiliza .legal-block, .legal-block__heading, .legal-card,
-   .legal-card__text y .legal__title de legal-documents.page.css
-   — aquí solo se definen los elementos exclusivos de esta página */
+/* ===== Pagina de documentos legales (sidebar scrollspy) ===== */
 
-.privacy {
-  background: #ffffff;
-  color: #111827;
+.legal-doc {
+  background: var(--color-bg);
+  color: var(--color-text);
 }
 
-.privacy__wrap {
-  width: min(920px, calc(100% - 48px));
+.legal-doc__layout {
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 26px 0 56px;
+  padding: var(--space-lg) var(--container-px) var(--space-xl);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 60px;
 }
 
-/* ── Back link ── */
-.privacy__back {
-  display: inline-block;
-  margin-bottom: 28px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #1ca4ff;
-  text-decoration: none;
+/* ===== SIDEBAR ===== */
+.legal-doc__sidebar {
+  position: sticky;
+  top: calc(var(--nav-h) + 24px);
+  align-self: start;
+  height: fit-content;
 }
 
-.privacy__back:hover {
-  text-decoration: underline;
-}
-
-/* ── Header ── */
-.privacy__header {
+.legal-doc__nav {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 32px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid #eeeeee;
+  gap: 4px;
+  border-left: 2px solid var(--color-border);
 }
 
-.privacy__logo {
-  height: 56px;
-  width: auto;
-  object-fit: contain;
+.legal-doc__nav-link {
+  padding: 8px 16px;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  margin-left: -2px;
+  transition:
+    color 0.15s ease,
+    border-color 0.15s ease;
 }
 
-/* ── Links dentro de cards ── */
-.legal-card__link {
-  color: #1ca4ff;
+.legal-doc__nav-link:hover {
+  color: var(--color-text);
+}
+
+.legal-doc__nav-link.is-active {
+  color: var(--primary-color);
+  font-weight: var(--font-weight-semibold);
+  border-left-color: var(--primary-color);
+}
+
+/* ===== CONTENIDO ===== */
+.legal-doc__content {
+  min-width: 0;
+}
+
+.legal-doc__title {
+  margin: 0 0 var(--space-lg);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+}
+
+.legal-doc__block {
+  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+  scroll-margin-top: calc(var(--nav-h) + 24px);
+}
+
+.legal-doc__block:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.legal-doc__heading {
+  margin: 0 0 16px;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.legal-doc__text {
+  margin: 0;
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+.legal-doc__link {
+  color: var(--primary-color);
   text-decoration: underline;
   word-break: break-all;
-  font-weight: 400;
 }
 
-/* ── Lista dentro de cards ── */
-.legal-card__list {
-  margin: 10px 0 0;
+.legal-doc__link:hover {
+  color: var(--primary-color-dark);
+}
+
+.legal-doc__list {
+  margin: 12px 0 0;
   padding-left: 18px;
   list-style: disc;
 }
 
-.legal-card__list li {
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.6;
-  color: #111827;
-  margin-bottom: 6px;
+.legal-doc__list li {
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  margin-bottom: 8px;
 }
 
-.legal-card__list li:last-child {
+.legal-doc__list li:last-child {
   margin-bottom: 0;
 }
 
-/* ── Footer ── */
-.privacy__footer {
-  margin-top: 48px;
-  padding-top: 18px;
-  border-top: 1px solid #eeeeee;
-  text-align: center;
-  font-size: 13px;
-  font-weight: 300;
-  color: #6b7280;
-}
-
-/* ── Responsive ── */
-@media (max-width: 640px) {
-  .privacy__wrap {
-    padding: 20px 0 40px;
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .legal-doc__layout {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
-  .privacy__logo {
-    height: 44px;
+  .legal-doc__sidebar {
+    display: none;
   }
 }

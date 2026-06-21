@@ -35,16 +35,17 @@ export class AyudaPage {
 
   faqs: FaqItem[] = [
     {
-      question: '¿Qué es PAYSAT?',
+      question: '¿Qué es Paysat Money LTD?',
       steps: [
         {
           title: 'Resumen',
-          subtitle: 'PAYSAT es una plataforma de banca digital multidivisa y soluciones de pago.',
+          subtitle:
+            'Paysat Money LTD es la empresa detrás de la app Paysat, una plataforma de banca digital multidivisa y soluciones de pago.',
         },
         {
           title: 'Qué permite hacer',
           subtitle:
-            'Permite a empresas, instituciones financieras y usuarios acceder a cuentas bancarias, billeteras electrónicas, transferencias nacionales e internacionales y programas de tarjetas de débito.',
+            'La app permite a empresas, instituciones financieras y usuarios acceder a cuentas bancarias, billeteras electrónicas, transferencias nacionales e internacionales y programas de tarjetas de débito.',
         },
         {
           title: 'Enfoque',
@@ -53,12 +54,12 @@ export class AyudaPage {
       ],
     },
     {
-      question: '¿Qué tipos de clientes pueden usar PAYSAT?',
+      question: '¿Qué tipos de clientes pueden usar la app Paysat?',
       steps: [
         {
           title: 'A quién está dirigido',
           subtitle:
-            'PAYSAT está diseñado para empresas, instituciones financieras, FinTech, PSP, comercios internacionales y usuarios individuales.',
+            'La app Paysat está diseñada para empresas, instituciones financieras, FinTech, PSP, comercios internacionales y usuarios individuales.',
         },
         {
           title: 'Perfiles',
@@ -71,11 +72,11 @@ export class AyudaPage {
       ],
     },
     {
-      question: '¿En qué países opera PAYSAT?',
+      question: '¿En qué países opera Paysat Money LTD?',
       steps: [
         {
           title: 'Alcance',
-          subtitle: 'PAYSAT ofrece servicios con alcance internacional.',
+          subtitle: 'Paysat Money LTD ofrece servicios con alcance internacional.',
         },
         {
           title: 'Infraestructura',
@@ -94,7 +95,7 @@ export class AyudaPage {
         {
           title: 'Divisas soportadas',
           subtitle:
-            'La plataforma soporta múltiples divisas, incluyendo USD, EUR, GBP y otras monedas.',
+            'La app Paysat soporta múltiples divisas, incluyendo USD, EUR, GBP y otras monedas.',
         },
         {
           title: 'Uso',
@@ -113,7 +114,7 @@ export class AyudaPage {
         {
           title: 'Sí',
           subtitle:
-            'PAYSAT permite transferencias entrantes y salientes tanto nacionales como internacionales.',
+            'La app Paysat permite transferencias entrantes y salientes tanto nacionales como internacionales.',
         },
         {
           title: 'Canales',
@@ -126,12 +127,12 @@ export class AyudaPage {
       ],
     },
     {
-      question: '¿PAYSAT emite tarjetas de débito?',
+      question: '¿Paysat Money LTD emite tarjetas de débito?',
       steps: [
         {
           title: 'Sí',
           subtitle:
-            'PAYSAT ofrece programas de tarjetas de débito prepago físicas, virtuales y móviles.',
+            'Paysat Money LTD ofrece programas de tarjetas de débito prepago físicas, virtuales y móviles.',
         },
         {
           title: 'Personalización',
@@ -162,7 +163,7 @@ export class AyudaPage {
       ],
     },
     {
-      question: '¿Es seguro usar PAYSAT?',
+      question: '¿Es seguro usar la app Paysat?',
       steps: [
         {
           title: 'Prioridad',
@@ -171,7 +172,7 @@ export class AyudaPage {
         {
           title: 'Controles',
           subtitle:
-            'PAYSAT aplica medidas de seguridad técnicas y operativas, gestión de riesgos y prevención de fraude.',
+            'Paysat Money LTD aplica medidas de seguridad técnicas y operativas, gestión de riesgos y prevención de fraude.',
         },
         {
           title: 'Cumplimiento',
@@ -199,11 +200,11 @@ export class AyudaPage {
       ],
     },
     {
-      question: '¿PAYSAT es un banco?',
+      question: '¿Paysat Money LTD es un banco?',
       steps: [
         {
           title: 'No',
-          subtitle: 'PAYSAT no actúa como banco tradicional.',
+          subtitle: 'Paysat Money LTD no actúa como banco tradicional.',
         },
         {
           title: 'Qué es',
@@ -217,11 +218,11 @@ export class AyudaPage {
       ],
     },
     {
-      question: '¿Puedo integrar PAYSAT a mi sistema o plataforma?',
+      question: '¿Puedo integrar Paysat a mi sistema o plataforma?',
       steps: [
         {
           title: 'Sí',
-          subtitle: 'PAYSAT ofrece opciones de integración tecnológica.',
+          subtitle: 'La app Paysat ofrece opciones de integración tecnológica.',
         },
         {
           title: 'Para quién',
@@ -262,7 +263,7 @@ export class AyudaPage {
         },
         {
           title: 'Enfoque',
-          subtitle: 'PAYSAT ofrece esquemas de precios competitivos y personalizados.',
+          subtitle: 'Paysat Money LTD ofrece esquemas de precios competitivos y personalizados.',
         },
         {
           title: 'Acción recomendada',
@@ -276,7 +277,7 @@ export class AyudaPage {
         {
           title: 'Soporte disponible',
           subtitle:
-            'PAYSAT ofrece canales de soporte y atención al cliente para resolver consultas técnicas, operativas y administrativas.',
+            'Paysat Money LTD ofrece canales de soporte y atención al cliente para resolver consultas técnicas, operativas y administrativas.',
         },
         {
           title: 'Alcance',
@@ -299,7 +300,7 @@ export class AyudaPage {
         },
         {
           title: 'Ubicación',
-          subtitle: 'Está disponible públicamente en el sitio web de PAYSAT.',
+          subtitle: 'Está disponible públicamente en el sitio web de Paysat Money LTD.',
         },
         {
           title: 'Acceso',

@@ -1,26 +1,18 @@
 <main class="services-page">
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero__bg">
-      <!-- Reemplaza por tu imagen -->
-      <img class="hero__img" src="services-1.png" alt="PAYSA(T) - Servicios" loading="eager" />
-    </div>
-
-    <div class="floating-card">
-      <article class="hero-card">
-        <div class="hero-card__img">
-          <img src="services-2.png" alt="Digital Wallet Paysat" />
-        </div>
-        <h2 class="hero-card__title">Como funciona PAYSAT</h2>
-        <p class="hero-card__text">
-          PAYSAT conecta a instituciones financieras y corporaciones con un ecosistema de pagos
-          global que integra cuentas multidivisa, transferencias internacionales y programas de
-          tarjetas en una sola plataforma. Con nuestra red de bancos corresponsales y socios
-          integrados, habilitamos operaciones rápidas, seguras y escalables, con enfoque en
-          cumplimiento y gestión de riesgo, para que su organización pueda recibir, custodiar y
-          enviar fondos a nivel local e internacional.
+  <section class="hero hero--editorial">
+    <div class="hero__editorial-wrap">
+      <div class="hero__editorial-text">
+        <p class="hero__eyebrow">¿Comó funciona?</p>
+        <h1 class="hero__title">Un solo ecosistema para todos tus pagos</h1>
+        <p class="hero__text">
+          Cuentas multidivisa, transferencias internacionales y tarjetas, integradas en una
+          plataforma con respaldo bancario.
         </p>
-      </article>
+      </div>
+      <div class="hero__editorial-card">
+        <img src="services-1.png" alt="Tarjeta PAYSAT" />
+      </div>
     </div>
   </section>
 
@@ -28,6 +20,7 @@
   <section class="section">
     <div class="container">
       <h2 class="section__title">Servicios en línea</h2>
+      <p class="section__subtitle">Soluciones financieras digitales para tu negocio.</p>
 
       <div class="services-grid">
         <article class="service-card" *ngFor="let service of visibleServices">
