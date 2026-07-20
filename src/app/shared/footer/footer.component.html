@@ -1,30 +1,40 @@
 <footer class="footer">
-  <!-- FILA SUPERIOR -->
-  <div class="footer-main">
-    <!-- COLUMNA 1 -->
-    <div class="footer-col">
-      <img src="logyletras.png" alt="PAYSAT" class="footer-logo" />
+  <div class="footer-glow"></div>
 
-      <a href="/home">Inicio</a>
-      <a routerLink="/Abre-tu-cuenta">Abre tu cuenta ahora</a>
-      <a href="#">Inicia sesión en tu Banca Virtual</a>
-      <a href="/servicios">Servicios</a>
-      <a href="/ayuda">Ayuda</a>
+  <div class="footer-main">
+    <!-- COLUMNA 1: LOGO + EMPRESAS -->
+    <div class="footer-col footer-col--brand">
+      <a routerLink="/empresas" class="footer-logo-link">
+        <img src="logyletras.png" alt="PAYSAT" class="footer-logo" />
+      </a>
+
+      <h4>Para instituciones</h4>
+      <a routerLink="/empresas">Inicio empresas</a>
+      <a routerLink="/empresas/servicios">Servicios</a>
+      <a routerLink="/empresas/solicitar-demo">Solicitar demo</a>
     </div>
 
-    <!-- COLUMNA 2 -->
+    <!-- COLUMNA 2: PERSONAS -->
     <div class="footer-col">
-      <h4>Mas sobre nosotros</h4>
-      <a href="#">Facebook</a>
-      <a href="#">Instagram</a>
-      <a href="/nosotros">Nosotros</a>
+      <h4>Para personas</h4>
+      <a routerLink="/personas">Inicio personas</a>
+      <a routerLink="/personas/abre-tu-cuenta">Abre tu cuenta ahora</a>
+      <a routerLink="/ayuda">Ayuda</a>
+    </div>
+
+    <!-- COLUMNA 3: NOSOTROS / LEGAL -->
+    <div class="footer-col">
+      <h4>Más sobre nosotros</h4>
+      <a href="#" target="_blank" rel="noopener">Facebook</a>
+      <a href="#" target="_blank" rel="noopener">Instagram</a>
+      <a routerLink="/nosotros">Nosotros</a>
       <a routerLink="/nosotros" fragment="contacto">Contáctanos</a>
       <a routerLink="/legal-documents">Información Legal</a>
       <a routerLink="/politica-de-privacidad">Privacidad y Seguridad</a>
     </div>
 
-    <!-- COLUMNA 3 -->
-    <div class="app-text">
+    <!-- COLUMNA 4: APP -->
+    <div class="footer-col app-text">
       <h4>PAYSAT App</h4>
       <p>Descarga nuestra aplicación</p>
 
@@ -35,7 +45,7 @@
 
       <img src="iphone-mockup.png" alt="App preview" class="phone-img" />
     </div>
-    <div class="footer-copy">©PAYSAT</div>
+
+    <div class="footer-copy">© PAYSAT {{ currentYear }}</div>
   </div>
-  <!-- COPYRIGHT solo bajo la izquierda -->
 </footer>

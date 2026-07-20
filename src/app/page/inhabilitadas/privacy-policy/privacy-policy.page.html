@@ -1,0 +1,102 @@
+<main class="legal-doc">
+  <div class="legal-doc__layout">
+    <!-- SIDEBAR -->
+    <aside class="legal-doc__sidebar">
+      <nav class="legal-doc__nav">
+        <a
+          *ngFor="let section of sections"
+          href="javascript:void(0)"
+          class="legal-doc__nav-link"
+          [class.is-active]="activeSection === section.id"
+          (click)="scrollToSection(section.id)"
+        >
+          {{ section.label }}
+        </a>
+      </nav>
+    </aside>
+
+    <!-- CONTENIDO -->
+    <div class="legal-doc__content">
+      <h1 class="legal-doc__title">Política de Privacidad y Seguridad</h1>
+
+      <section id="identificacion" class="legal-doc__block">
+        <h2 class="legal-doc__heading">1. Identificación del responsable</h2>
+        <p class="legal-doc__text">
+          El responsable del tratamiento de sus datos personales es
+          <strong>Paysat Money LTD</strong>, identificada en Ecuador con
+          <strong>RUC 0195164169001</strong>, utilizando el dominio oficial
+          <a
+            class="legal-doc__link"
+            href="https://paysatmoney.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            https://paysatmoney.com </a
+          >.
+        </p>
+      </section>
+
+      <section id="contacto" class="legal-doc__block">
+        <h2 class="legal-doc__heading">2. Canales de contacto</h2>
+        <ul class="legal-doc__list">
+          <li>
+            <strong>Dirección:</strong> C. Francisco Moscoso e Intersección Diez de Agosto, Edificio
+            Torres de Yanuncay, Of. 4B, Cuenca, Azuay.
+          </li>
+          <li><strong>Teléfono:</strong> +593 995932315</li>
+          <li><strong>Correo electrónico:</strong> contacto&#64;paysatmoney.com</li>
+        </ul>
+      </section>
+
+      <section id="marcas" class="legal-doc__block">
+        <h2 class="legal-doc__heading">3. Marcas y plataformas vinculadas</h2>
+        <p class="legal-doc__text">
+          Esta política ampara el tratamiento de datos realizado a través de todas las plataformas
+          tecnológicas desarrolladas por Paysat Money LTD, incluyendo de manera enunciativa más no
+          limitativa:
+        </p>
+        <ul class="legal-doc__list">
+          <li>
+            <strong>PAGOCEL:</strong> Plataforma de servicios financieros auxiliares disponible
+            mediante aplicaciones móviles y soluciones de mensajería avanzada (WhatsApp Flows).
+          </li>
+          <li>
+            Cualquier otra herramienta, software o interfaz desarrollada por Paysat Money LTD para
+            la prestación de sus servicios.
+          </li>
+        </ul>
+      </section>
+
+      <section id="finalidad" class="legal-doc__block">
+        <h2 class="legal-doc__heading">4. Finalidad del tratamiento</h2>
+        <p class="legal-doc__text">
+          Los datos recolectados a través de PAGOCEL y otros servicios de Paysat Money LTD se
+          utilizan para:
+        </p>
+        <ul class="legal-doc__list">
+          <li>La ejecución de servicios auxiliares financieros y transaccionales.</li>
+          <li>Intermediación tecnológica para la oferta de servicios de terceros.</li>
+          <li>Gestión de soporte técnico y validación de identidad del usuario.</li>
+        </ul>
+      </section>
+
+      <section id="seguridad" class="legal-doc__block">
+        <h2 class="legal-doc__heading">5. Seguridad y transferencia</h2>
+        <p class="legal-doc__text">
+          Paysat Money LTD garantiza un servicio seguro y efectivo mediante infraestructura propia.
+          En el caso del uso de WhatsApp Flows, los datos cuentan con la protección y encriptación
+          de la infraestructura de Meta Platforms, Inc. bajo estándares internacionales.
+        </p>
+      </section>
+
+      <section id="derechos" class="legal-doc__block">
+        <h2 class="legal-doc__heading">6. Derechos del titular (LOPDP Ecuador)</h2>
+        <p class="legal-doc__text">
+          Conforme a la Ley Orgánica de Protección de Datos Personales de Ecuador, el usuario puede
+          ejercer sus derechos de acceso, rectificación o eliminación escribiendo a
+          <strong>contacto&#64;paysatmoney.com</strong>.
+        </p>
+      </section>
+    </div>
+  </div>
+</main>

@@ -3,43 +3,149 @@
   [class.nav-wrap--visible]="navVisible"
   [class.nav-wrap--hidden]="!navVisible"
 >
-  <p-menubar>
-    <ng-template pTemplate="start">
-      <img src="logyletras.png" alt="Logo" class="logo" routerLink="/home" />
-    </ng-template>
+  <nav
+    class="nav-shell"
+    [class.nav-shell--menu-open]="mobileOpen"
+    aria-label="Navegación principal"
+  >
+    <!-- LOGO -->
+    <a class="brand" [routerLink]="logoLink" aria-label="Ir al inicio">
+      <img src="logyletras.png" alt="PAYSAT" class="logo" />
+    </a>
 
-    <ng-template pTemplate="end">
-      <div class="actions desktop-only">
-        @for (item of items; track item.label) {
-          <a class="menu-link" [routerLink]="item.routerLink" routerLinkActive="active">
+    <!-- TOGGLE DESKTOP -->
+    <div class="audience-toggle desktop-only" aria-label="Seleccionar tipo de usuario">
+      <button
+        type="button"
+        [class.active]="activeMode === 'empresas'"
+        (click)="setMode('empresas')"
+      >
+        Empresas
+      </button>
+
+      <button
+        type="button"
+        [class.active]="activeMode === 'personas'"
+        (click)="setMode('personas')"
+      >
+        Personas
+      </button>
+
+      <span
+        class="toggle-indicator"
+        [class.toggle-indicator--personas]="activeMode === 'personas'"
+      ></span>
+    </div>
+
+    <!-- BLOQUE DERECHO -->
+    <div class="nav-right desktop-only">
+      <!-- LINKS DEL AMBIENTE -->
+      <div class="nav-links">
+        @for (item of activeLinks; track item.path) {
+          <a
+            class="menu-link"
+            [routerLink]="item.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            {{ item.label }}
+          </a>
+        }
+      </div>
+
+      <!-- LINKS COMUNES + CTA -->
+      <div class="nav-actions">
+        @for (item of commonLinks; track item.path) {
+          <a
+            class="menu-link"
+            [routerLink]="item.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
             {{ item.label }}
           </a>
         }
 
-        <button pButton label="Banca Virtual" routerLink="/bank"></button>
+        <a
+          class="nav-cta"
+          [routerLink]="ctaLink.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          {{ ctaLink.label }}
+        </a>
       </div>
+    </div>
 
-      <button
-        class="mobile-only hamburger"
-        pButton
-        type="button"
-        icon="pi pi-bars"
-        (click)="toggleMobileMenu()"
-        aria-label="Abrir menú"
-      ></button>
-    </ng-template>
-  </p-menubar>
+    <!-- HAMBURGUESA MOBILE -->
+    <button
+      class="mobile-only hamburger"
+      pButton
+      type="button"
+      [icon]="mobileOpen ? 'pi pi-times' : 'pi pi-bars'"
+      (click)="toggleMobileMenu()"
+      [class.hamburger--open]="mobileOpen"
+      [attr.aria-expanded]="mobileOpen"
+      [attr.aria-label]="mobileOpen ? 'Cerrar menú' : 'Abrir menú'"
+    ></button>
+  </nav>
 </header>
 
-<!-- OVERLAY -->
+<!-- OVERLAY MOBILE -->
 <div class="mobile-overlay" [class.open]="mobileOpen" (click)="closeMobileMenu()"></div>
 
-<!-- PANEL MOBILE FULL WIDTH -->
-<div #mobileMenu class="mobile-panel" [class.open]="mobileOpen">
-  <a class="mobile-link" routerLink="/home" (click)="closeMobileMenu()">Inicio</a>
-  <a class="mobile-link" routerLink="/servicios" (click)="closeMobileMenu()">Servicios</a>
-  <a class="mobile-link" routerLink="/nosotros" (click)="closeMobileMenu()">Nosotros</a>
-  <a class="mobile-link" routerLink="/ayuda" (click)="closeMobileMenu()">Ayuda</a>
-  <a class="mobile-link" routerLink="/Abre-tu-cuenta" (click)="closeMobileMenu()">Abre tu cuenta</a>
-  <a class="mobile-link" routerLink="/bank" (click)="closeMobileMenu()">Banca Virtual</a>
-</div>
+<!-- PANEL MOBILE -->
+<aside #mobileMenu class="mobile-panel" [class.open]="mobileOpen">
+  <div class="mobile-toggle audience-toggle">
+    <button type="button" [class.active]="activeMode === 'empresas'" (click)="setMode('empresas')">
+      Empresas
+    </button>
+    <button type="button" [class.active]="activeMode === 'personas'" (click)="setMode('personas')">
+      Personas
+    </button>
+    <span
+      class="toggle-indicator"
+      [class.toggle-indicator--personas]="activeMode === 'personas'"
+    ></span>
+  </div>
+
+  <p class="mobile-section-title">
+    {{ modeTitle }}
+  </p>
+
+  <div class="mobile-links">
+    @for (item of activeLinks; track item.path) {
+      <a
+        class="mobile-link"
+        [routerLink]="item.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMobileMenu()"
+      >
+        {{ item.label }}
+      </a>
+    }
+
+    @for (item of commonLinks; track item.path) {
+      <a
+        class="mobile-link"
+        [routerLink]="item.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMobileMenu()"
+      >
+        {{ item.label }}
+      </a>
+    }
+
+    <a
+      class="mobile-link"
+      [routerLink]="ctaLink.path"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      (click)="closeMobileMenu()"
+    >
+      {{ ctaLink.label }}
+    </a>
+  </div>
+</aside>

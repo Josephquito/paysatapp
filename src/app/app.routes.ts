@@ -2,12 +2,49 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
-    path: 'home',
-    loadComponent: () => import('./page/home/home.page').then((m) => m.HomePage),
+    path: 'empresas',
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./page/empresas/empresas-home/empresas-home.page').then(
+            (m) => m.EmpresasHomePage,
+          ),
+      },
+      {
+        path: 'servicios',
+        loadComponent: () =>
+          import('./page/empresas/servicios-empresas/servicios-empresas.page').then(
+            (m) => m.ServiciosEmpresasPage,
+          ),
+      },
+      {
+        path: 'solicitar-demo',
+        loadComponent: () =>
+          import('./page/empresas/solicitar-demo/solicitar-demo.page').then(
+            (m) => m.SolicitarDemoPage,
+          ),
+      },
+    ],
   },
   {
-    path: 'servicios',
-    loadComponent: () => import('./page/serviciospage/servicios.page').then((m) => m.ServiciosPage),
+    path: 'personas',
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./page/personas/personas-home/personas-home.page').then(
+            (m) => m.PersonasHomePage,
+          ),
+      },
+      {
+        path: 'abre-tu-cuenta',
+        loadComponent: () =>
+          import('./page/personas/abre-tu-cuenta/abre-tu-cuenta.page').then(
+            (m) => m.AbreTuCuentaPage,
+          ),
+      },
+    ],
   },
   {
     path: 'nosotros',
@@ -22,15 +59,6 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./page/legal documents/legal-documents.page').then((m) => m.LegalDocumentsPage),
   },
-  {
-    path: 'Abre-tu-cuenta',
-    loadComponent: () =>
-      import('./page/abre-tu-cuenta/abre-tu-cuenta.page').then((m) => m.AbreTuCuentaPage),
-  },
-  {
-    path: 'politica-de-privacidad',
-    loadComponent: () =>
-      import('./page/privacy-policy/privacy-policy.page').then((m) => m.PrivacyPolicyPage),
-  },
-  { path: '', pathMatch: 'full', redirectTo: 'home' },
+
+  { path: '', pathMatch: 'full', redirectTo: 'empresas' },
 ];

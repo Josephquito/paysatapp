@@ -1,0 +1,556 @@
+/* personas-home.page.css */
+
+/* ===== 1. HERO ===== */
+
+/* ===== 1. HERO ===== */
+
+.hero {
+  position: relative;
+  min-height: 90vh;
+  padding-top: var(--header-clearance);
+  padding-bottom: 60px;
+
+  display: flex;
+  align-items: center;
+
+  overflow: visible;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.4) 45%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 150px;
+}
+
+.hero-text {
+  max-width: 600px;
+  color: var(--color-text);
+}
+
+.hero-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.1;
+
+  margin: 0 0 20px;
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  opacity: 0.95;
+  font-weight: var(--font-weight-light);
+
+  margin: 0 0 var(--space-md);
+}
+
+.hero-cta {
+  display: inline-block;
+
+  padding: 14px 28px;
+  border-radius: var(--radius-pill);
+
+  background-color: var(--primary-color);
+  color: var(--color-text-on-dark);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.hero-cta:hover {
+  transform: translateY(-1px);
+  background-color: var(--primary-color-dark);
+}
+
+.hero-visual {
+  position: relative;
+  width: 500px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-glow {
+  position: absolute;
+  inset: -40px;
+  z-index: 0;
+
+  background: radial-gradient(circle at center, rgba(201, 168, 76, 0.35), transparent 70%);
+  filter: blur(30px);
+
+  transition: transform 0.15s ease-out;
+  pointer-events: none;
+}
+
+.hero-phone {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: auto;
+  display: block;
+
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
+.hero-spotlight {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  pointer-events: none;
+  transition: background 0.15s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-phone,
+  .hero-glow {
+    transition: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-inner {
+    flex-direction: column;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .hero-visual {
+    width: 100%;
+    max-width: 380px;
+  }
+}
+
+/* ===== 2. TARJETA DESTACADA ===== */
+
+.card-promo {
+  background: var(--color-bg-section);
+}
+
+.card-promo-inner {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.card-promo-title {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+
+  margin: var(--space-xs) 0 var(--space-sm);
+}
+
+.card-promo-description {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+
+  max-width: 50ch;
+  margin: 0 0 var(--space-sm);
+}
+
+.card-promo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--primary-color);
+
+  margin-bottom: var(--space-lg);
+  transition: gap var(--transition-fast);
+}
+
+.card-promo-link:hover {
+  gap: 12px;
+}
+
+.card-promo-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.card-promo-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.card-promo-feature i {
+  color: var(--primary-color);
+}
+
+.card-promo-visual {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  perspective: 1000px;
+}
+
+.card-promo-image {
+  width: 100%;
+  height: auto;
+  display: block;
+
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card-hover);
+
+  transition:
+    transform 0.12s ease-out,
+    box-shadow 0.2s ease-out;
+  will-change: transform;
+}
+
+.card-promo-visual:hover .card-promo-image {
+  box-shadow:
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(201, 168, 76, 0.25);
+}
+
+.card-shine {
+  position: absolute;
+  inset: 0;
+
+  border-radius: var(--radius-xl);
+  pointer-events: none;
+  mix-blend-mode: screen; /* antes: overlay */
+
+  transition: background 0.12s ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-promo-image,
+  .card-shine {
+    transition: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .card-promo-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .card-promo-features {
+    justify-content: center;
+  }
+
+  .card-promo-link,
+  .card-promo-description {
+    margin-inline: auto;
+  }
+}
+
+/* ===== 3. CARRUSEL ===== */
+
+.carousel-header {
+  text-align: center;
+  max-width: var(--max-width-sm);
+  margin: 0 auto var(--space-lg);
+}
+
+.carousel-title {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-bold);
+  margin: var(--space-xs) 0 0;
+}
+
+.carousel-wrap {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.carousel-track {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+
+  padding-bottom: 4px;
+
+  /* Oculta la scrollbar visual, pero sigue siendo funcional para gestos táctiles */
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-card {
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+
+  padding: var(--space-md);
+  border-radius: var(--radius-xl);
+  text-align: center;
+}
+
+.carousel-card-media {
+  display: flex;
+  justify-content: center;
+
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-sm);
+}
+
+.carousel-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.carousel-card h3 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 6px;
+}
+
+.carousel-card p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.carousel-nav {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-circle);
+  border: 1px solid var(--color-border);
+
+  background: var(--color-bg-card);
+  color: var(--color-text);
+  cursor: pointer;
+
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.carousel-nav:hover {
+  background: var(--color-bg-card-hover);
+  border-color: rgba(201, 168, 76, 0.35);
+}
+
+@media (max-width: 640px) {
+  .carousel-nav {
+    display: none;
+  }
+}
+
+/* ===== 4. CÓMO FUNCIONA ===== */
+
+.road-header {
+  text-align: center;
+  max-width: var(--max-width-sm);
+  margin: 0 auto var(--space-lg);
+}
+
+.road-title {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-bold);
+  margin: var(--space-xs) 0 0;
+}
+
+.road-line {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+
+  margin-bottom: var(--space-lg);
+}
+
+.road-step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.road-step--right {
+  flex-direction: row-reverse;
+}
+
+.road-badge {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-circle);
+
+  background: var(--gradient-brand);
+  color: #000000;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-black);
+}
+
+.road-card {
+  flex: 1;
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+}
+
+.road-card h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 4px;
+}
+
+.road-card p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.road-note {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+@media (max-width: 640px) {
+  .road-step,
+  .road-step--right {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/* ===== 5. CTA DE CIERRE ===== */
+
+.closing-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.closing-media {
+  display: flex;
+  justify-content: center;
+}
+
+.closing-image {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  display: block;
+}
+
+.closing-title {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+
+  margin: var(--space-xs) 0 var(--space-sm);
+}
+
+.closing-text {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+
+  max-width: 48ch;
+  margin: 0 0 var(--space-md);
+}
+
+.closing-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 52px;
+  padding: 0 32px;
+
+  border-radius: var(--radius-pill);
+
+  color: #000000;
+  font-weight: var(--font-weight-bold);
+
+  background: var(--gradient-brand);
+
+  transition: transform var(--transition-base);
+}
+
+.closing-cta:hover {
+  transform: translateY(-3px);
+}
+
+@media (max-width: 900px) {
+  .closing-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .closing-media {
+    order: -1;
+  }
+
+  .closing-text {
+    margin-inline: auto;
+  }
+}

@@ -1,69 +1,148 @@
-import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { MenubarModule } from 'primeng/menubar';
+import { Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Router, NavigationEnd, RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
-import { MenuItem } from 'primeng/api';
+import { filter, Subscription } from 'rxjs';
+
+type AudienceMode = 'empresas' | 'personas';
+
+interface NavItem {
+  label: string;
+  path: string;
+}
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
-  imports: [RouterModule, MenubarModule, ButtonModule],
+  imports: [RouterModule, ButtonModule],
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit, OnDestroy {
   mobileOpen = false;
-
-  // NUEVO: controla visibilidad del navbar
   navVisible = true;
 
-  // NUEVO: estado scroll
+  activeMode: AudienceMode = 'empresas';
+
   private lastScrollTop = 0;
-  private readonly showThreshold = 10; // evita parpadeo por micro-scroll
-  private readonly hideAfter = 80; // no ocultar cerca del top
+  private readonly showThreshold = 10;
+  private readonly hideAfter = 80;
+  private routerSub?: Subscription;
 
   @ViewChild('mobileMenu') mobileMenu!: ElementRef<HTMLElement>;
 
-  items: MenuItem[] = [
-    { label: 'Inicio', routerLink: '/home' },
-    { label: 'Servicios', routerLink: '/servicios' },
-    { label: 'Nosotros', routerLink: '/nosotros' },
-    { label: 'Ayuda', routerLink: '/ayuda' },
-    { label: 'Abre tu cuenta', routerLink: '/Abre-tu-cuenta' },
+  empresasLinks: NavItem[] = [
+    {
+      label: 'Servicios',
+      path: '/empresas/servicios',
+    },
   ];
 
-  toggleMobileMenu() {
-    this.mobileOpen = !this.mobileOpen;
+  personasLinks: NavItem[] = [];
 
-    // Si abren el menú, forzamos navbar visible
-    if (this.mobileOpen) this.navVisible = true;
+  commonLinks: NavItem[] = [
+    {
+      label: 'Nosotros',
+      path: '/nosotros',
+    },
+    {
+      label: 'Ayuda',
+      path: '/ayuda',
+    },
+  ];
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
+    this.syncModeWithUrl(this.router.url);
+
+    this.routerSub = this.router.events
+      .pipe(filter((event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe((event) => {
+        this.syncModeWithUrl(event.urlAfterRedirects);
+        this.closeMobileMenu();
+      });
   }
 
-  closeMobileMenu() {
+  ngOnDestroy(): void {
+    this.routerSub?.unsubscribe();
+  }
+
+  get activeLinks(): NavItem[] {
+    return this.activeMode === 'empresas' ? this.empresasLinks : this.personasLinks;
+  }
+
+  get logoLink(): string {
+    return this.activeMode === 'empresas' ? '/empresas' : '/personas';
+  }
+
+  get modeTitle(): string {
+    return this.activeMode === 'empresas' ? 'Empresas e Instituciones' : 'Personas';
+  }
+
+  get ctaLink(): NavItem {
+    return this.activeMode === 'empresas'
+      ? {
+          label: 'Solicitar demo',
+          path: '/empresas/solicitar-demo',
+        }
+      : {
+          label: 'Abrir cuenta',
+          path: '/personas/abre-tu-cuenta',
+        };
+  }
+
+  setMode(mode: AudienceMode): void {
+    this.activeMode = mode;
+    this.mobileOpen = false;
+    this.navVisible = true;
+
+    const target = mode === 'empresas' ? '/empresas' : '/personas';
+    this.router.navigate([target]);
+  }
+
+  toggleMobileMenu(): void {
+    this.mobileOpen = !this.mobileOpen;
+
+    if (this.mobileOpen) {
+      this.navVisible = true;
+    }
+  }
+
+  closeMobileMenu(): void {
     this.mobileOpen = false;
   }
 
-  // Cerrar al hacer click fuera del panel (y no en el botón hamburguesa)
+  private syncModeWithUrl(url: string): void {
+    if (url.startsWith('/personas')) {
+      this.activeMode = 'personas';
+      return;
+    }
+
+    if (url.startsWith('/empresas')) {
+      this.activeMode = 'empresas';
+      return;
+    }
+  }
+
   @HostListener('document:click', ['$event'])
-  onClickOutside(event: MouseEvent) {
+  onClickOutside(event: MouseEvent): void {
     if (!this.mobileOpen) return;
 
     const target = event.target as HTMLElement;
     const clickedInsideMenu = this.mobileMenu?.nativeElement.contains(target);
     const clickedHamburger = target.closest('.hamburger');
+    const clickedToggle = target.closest('.audience-toggle');
 
-    if (!clickedInsideMenu && !clickedHamburger) {
+    if (!clickedInsideMenu && !clickedHamburger && !clickedToggle) {
       this.closeMobileMenu();
     }
   }
 
-  // Scroll: (1) cerrar menú mobile, (2) mostrar/ocultar navbar según dirección
   @HostListener('window:scroll', [])
   onWindowScroll(): void {
     const st =
       window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
-    // Si el menú móvil está abierto: lo cerramos y mantenemos navbar visible
     if (this.mobileOpen) {
       this.closeMobileMenu();
       this.navVisible = true;
@@ -71,7 +150,6 @@ export class NavbarComponent {
       return;
     }
 
-    // Cerca del top: navbar siempre visible
     if (st <= this.hideAfter) {
       this.navVisible = true;
       this.lastScrollTop = st;
@@ -80,12 +158,9 @@ export class NavbarComponent {
 
     const delta = st - this.lastScrollTop;
 
-    // Evita parpadeo con movimientos mínimos
     if (Math.abs(delta) < this.showThreshold) return;
 
-    // Subes => visible | Bajas => oculto
     this.navVisible = delta < 0;
-
     this.lastScrollTop = st <= 0 ? 0 : st;
   }
 }

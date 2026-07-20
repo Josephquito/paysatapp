@@ -1,0 +1,46 @@
+<section class="catalog section-padding">
+  <div class="page-container">
+    <div class="catalog-header content-offset-top">
+      <h2 class="catalog-title">Ocho soluciones, una sola plataforma</h2>
+    </div>
+
+    <div class="catalog-filters">
+      <button
+        type="button"
+        class="filter-pill"
+        *ngFor="let filter of filters"
+        [class.active]="activeFilter === filter.value"
+        (click)="setFilter(filter.value)"
+      >
+        {{ filter.label }}
+      </button>
+    </div>
+
+    <div class="catalog-grid">
+      <div class="catalog-card glass hover-lift" *ngFor="let solution of filteredSolutions">
+        <div class="catalog-card-media">
+          <img [src]="solution.image" [alt]="solution.title" />
+        </div>
+        <div class="catalog-card-content">
+          <h3>{{ solution.title }}</h3>
+          <p>{{ solution.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-close section-padding">
+  <div class="page-container cta-close-inner">
+    <h2 class="cta-close-title">
+      ¿Listo para lanzar tu <span class="text-gradient">banca digital?</span>
+    </h2>
+
+    <p class="cta-close-text">
+      Cuéntanos sobre tu institución y armamos contigo la combinación exacta de soluciones que
+      necesitas.
+    </p>
+
+    <a class="cta-close-button" routerLink="/empresas/solicitar-demo">Solicitar demo</a>
+  </div>
+</section>

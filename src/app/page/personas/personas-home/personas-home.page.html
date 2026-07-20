@@ -1,0 +1,162 @@
+<!-- personas-home.page.html -->
+
+<!-- 1. HERO -->
+<section class="hero" (mousemove)="onHeroMove($event)" (mouseleave)="onHeroLeave()">
+  <img class="hero-bg" src="home_card.png" alt="" aria-hidden="true" />
+  <div class="hero-overlay"></div>
+  <div class="hero-spotlight" [style.background]="spotlightGradient"></div>
+
+  <div class="page-container hero-inner">
+    <div class="hero-text">
+      <h1 class="hero-title">
+        Soluciones innovadoras <span class="text-gradient">de pago digital</span>
+      </h1>
+      <p class="hero-subtitle">
+        Tu cuenta, tu tarjeta, tu wallet y tus remesas — todo desde una sola app, sin fronteras.
+      </p>
+      <a class="hero-cta" routerLink="/personas/abre-tu-cuenta">Abre tu cuenta</a>
+    </div>
+
+    <div class="hero-visual" (mousemove)="onMockupMove($event)" (mouseleave)="onMockupLeave()">
+      <div class="hero-glow" [style.transform]="glowTransform"></div>
+
+      <img
+        class="hero-phone"
+        src="mockups.png"
+        alt="Mockup app PAYSAT"
+        [style.transform]="phoneTransform"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- 2. TARJETA DESTACADA -->
+<section class="card-promo section-padding">
+  <div class="page-container card-promo-inner">
+    <div class="card-promo-visual" (mousemove)="onCardMove($event)" (mouseleave)="onCardLeave()">
+      <div class="card-inner" [style.transform]="cardTransform">
+        <img src="card.png" alt="Tarjeta VISA PAYSAT" class="card-promo-image" />
+        <div class="card-shine" [style.background]="cardShineGradient"></div>
+      </div>
+    </div>
+
+    <div class="card-promo-text">
+      <span class="eyebrow">Tarjeta VISA Internacional</span>
+      <h2 class="card-promo-title">Tu tarjeta, sin costos ocultos</h2>
+      <p class="card-promo-description">
+        Compra en Amazon, Netflix, Spotify, Google, Apple y en comercios físicos de todo el mundo —
+        virtual o física, lista en minutos.
+      </p>
+
+      <a class="card-promo-link" routerLink="/personas/abre-tu-cuenta">
+        Conocer la tarjeta
+        <i class="pi pi-arrow-right"></i>
+      </a>
+
+      <div class="card-promo-features">
+        <div class="card-promo-feature">
+          <i class="pi pi-check-circle"></i>
+          Sin mantenimiento
+        </div>
+        <div class="card-promo-feature">
+          <i class="pi pi-globe"></i>
+          Compras internacionales
+        </div>
+        <div class="card-promo-feature">
+          <i class="pi pi-bolt"></i>
+          Activación inmediata
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. CARRUSEL DE SERVICIOS -->
+<section class="carousel-section section-padding">
+  <div class="page-container">
+    <div class="carousel-header">
+      <h2 class="carousel-title">Un ecosistema completo para pagos digitales</h2>
+    </div>
+
+    <div class="carousel-wrap">
+      <button
+        type="button"
+        class="carousel-nav carousel-nav--prev"
+        (click)="scrollCarousel(-1)"
+        aria-label="Anterior"
+      >
+        <i class="pi pi-chevron-left"></i>
+      </button>
+
+      <div class="carousel-track" #carouselTrack>
+        <article class="carousel-card glass hover-lift" *ngFor="let item of services">
+          <div class="carousel-card-media">
+            <img [src]="item.image" [alt]="item.title" />
+          </div>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.description }}</p>
+        </article>
+      </div>
+
+      <button
+        type="button"
+        class="carousel-nav carousel-nav--next"
+        (click)="scrollCarousel(1)"
+        aria-label="Siguiente"
+      >
+        <i class="pi pi-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CÓMO FUNCIONA -->
+<section class="road section-padding">
+  <div class="page-container">
+    <div class="road-header">
+      <h2 class="road-title">4 pasos simples para mover dinero sin fricción</h2>
+    </div>
+
+    <div class="road-line">
+      <article
+        class="road-step"
+        *ngFor="let step of steps; let i = index"
+        [class.road-step--right]="i % 2 === 1"
+      >
+        <div class="road-badge">{{ step.number }}</div>
+        <div class="road-card glass">
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="road-note">
+      El sistema mueve saldos dentro de la plataforma, no expone datos bancarios y reduce fricción
+      operativa.
+    </p>
+  </div>
+</section>
+
+<!-- 5. CTA DE CIERRE -->
+<section class="closing section-padding">
+  <div class="page-container closing-grid">
+    <div class="closing-media">
+      <img src="home-per-final.png" alt="" class="closing-image" />
+    </div>
+
+    <div class="closing-content">
+      <span class="eyebrow">Sé parte de PAYSAT</span>
+
+      <h2 class="closing-title">
+        Descubre el <span class="text-gradient">futuro de los pagos</span> con nosotros
+      </h2>
+
+      <p class="closing-text">
+        Abre tu cuenta en minutos y empieza a mover tu dinero sin fronteras, sin complicaciones.
+      </p>
+
+      <a class="closing-cta" routerLink="/personas/abre-tu-cuenta">Abre tu cuenta</a>
+    </div>
+  </div>
+</section>

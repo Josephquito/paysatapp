@@ -104,10 +104,35 @@
 }
 
 .contact__form .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
   width: 100%;
-  padding: 8px 28px;
-  font-size: var(--font-size-base);
+  height: 52px;
+  padding: 0 32px;
   margin-top: 8px;
+
+  border: none;
+  border-radius: var(--radius-pill);
+
+  color: #000000;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+
+  background: var(--gradient-brand);
+  cursor: pointer;
+
+  transition: transform var(--transition-base);
+}
+
+.contact__form .btn-primary:hover:not(:disabled) {
+  transform: translateY(-3px);
+}
+
+.contact__form .btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* Responsive */

@@ -1,0 +1,90 @@
+/* solicitar-demo.page.css */
+
+.demo {
+  min-height: 100dvh;
+  padding-top: var(--header-clearance);
+
+  display: flex;
+  align-items: center;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.demo-title {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-4xl));
+  font-weight: var(--font-weight-black);
+  line-height: 1.15;
+
+  margin: var(--space-xs) 0 var(--space-sm);
+}
+
+.demo-text {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+
+  max-width: 46ch;
+  margin: 0 0 var(--space-lg);
+}
+
+.demo-benefits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.demo-benefits li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+}
+
+.demo-benefit-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-circle);
+
+  background: var(--gradient-brand);
+  color: #000000;
+  font-size: 13px;
+}
+
+.demo-form-wrap {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .demo-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .demo-visual {
+    text-align: center;
+  }
+
+  .demo-benefits {
+    align-items: center;
+  }
+
+  .demo-benefits li {
+    text-align: left;
+  }
+}

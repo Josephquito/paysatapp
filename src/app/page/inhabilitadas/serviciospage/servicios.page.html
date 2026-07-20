@@ -1,0 +1,93 @@
+<main class="services-page">
+  <!-- HERO -->
+  <section class="hero hero--editorial">
+    <div class="hero__editorial-wrap">
+      <div class="hero__editorial-text">
+        <p class="hero__eyebrow">¿Comó funciona?</p>
+        <h1 class="hero__title">Un solo ecosistema para todos tus pagos</h1>
+        <p class="hero__text">
+          Cuentas multidivisa, transferencias internacionales y tarjetas, integradas en una
+          plataforma con respaldo bancario.
+        </p>
+      </div>
+      <div class="hero__editorial-card">
+        <img src="services-1.png" alt="Tarjeta PAYSAT" />
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS EN LÍNEA -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section__title">Servicios en línea</h2>
+      <p class="section__subtitle">Soluciones financieras digitales para tu negocio.</p>
+
+      <div class="services-grid">
+        <article class="service-card" *ngFor="let service of visibleServices">
+          <p class="service-card__kicker">{{ service.kicker }}</p>
+
+          <h3 class="service-card__title">
+            {{ service.title }}
+          </h3>
+
+          <p class="service-card__subtitle">
+            {{ service.text1 }}
+          </p>
+
+          <p class="service-card__text">
+            {{ service.text2 }}
+          </p>
+        </article>
+      </div>
+
+      <!-- VER MÁS -->
+      <div class="see-more" *ngIf="hasMore">
+        <a class="see-more__link" href="#" (click)="loadMore(); $event.preventDefault()">
+          ver más
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGILITA TUS TRANSACCIONES -->
+  <section class="section section--tight">
+    <div class="container">
+      <h2 class="section__title">Agilita tus transacciones</h2>
+      <p class="section__subtitle">Canales de atención que facilitan tus necesidades.</p>
+
+      <div class="channels">
+        <div class="channels__left">
+          <button class="channel-item" type="button">
+            <span class="channel-item__title">Banca virtual</span>
+            <span class="channel-item__meta">Tu banco online</span>
+          </button>
+
+          <button class="channel-item" type="button" routerLink="/Abre-tu-cuenta">
+            <span class="channel-item__title">Paysat movil</span>
+            <span class="channel-item__meta">Descarga la app de Paysat (Movil)</span>
+          </button>
+
+          <button class="channel-item" type="button" (click)="openChat()">
+            <span class="channel-item__title">Chat en vivo</span>
+            <span class="channel-item__meta">Soporte 24/7</span>
+          </button>
+
+          <button class="channel-item" type="button" routerLink="/ayuda">
+            <span class="channel-item__title">Guías de uso</span>
+            <span class="channel-item__meta">Paso a paso</span>
+          </button>
+        </div>
+
+        <div class="channels__right">
+          <!-- Reemplaza por tu imagen -->
+          <img
+            class="channels__img"
+            src="services-3.png"
+            alt="Agilita tus transacciones"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

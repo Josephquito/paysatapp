@@ -1,0 +1,190 @@
+/* servicios-empresas.page.css */
+
+/* ===== CATÁLOGO ===== */
+
+.catalog {
+  padding-top: calc(var(--header-clearance) + var(--space-md));
+}
+
+.catalog-header {
+  text-align: center;
+  max-width: var(--max-width-sm);
+  margin: 0 auto var(--space-lg);
+}
+
+.catalog-title {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-bold);
+  margin: var(--space-xs) 0 0;
+}
+
+/* ===== FILTROS ===== */
+
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs);
+
+  margin-bottom: var(--space-lg);
+}
+
+.filter-pill {
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border);
+
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.filter-pill:hover {
+  border-color: rgba(201, 168, 76, 0.35);
+  color: var(--color-text);
+}
+
+.filter-pill.active {
+  background: var(--gradient-brand);
+  border-color: transparent;
+  color: #000000;
+  font-weight: var(--font-weight-bold);
+}
+
+/* ===== GRID DE CARDS ===== */
+
+.catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.catalog-card {
+  display: flex;
+  gap: var(--space-md);
+
+  padding: var(--space-md);
+  border-radius: var(--radius-xl);
+}
+
+.catalog-card-media {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 95px;
+  height: 95px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.catalog-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.catalog-card-content h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 6px;
+}
+
+.catalog-card-content p {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ===== CTA DE CIERRE ===== */
+
+.cta-close {
+  background: var(--color-bg-section);
+}
+
+.cta-close-inner {
+  text-align: center;
+  max-width: var(--max-width-sm);
+  margin: 0 auto;
+}
+
+.cta-close-title {
+  font-size: clamp(var(--font-size-2xl), 4vw, var(--font-size-3xl));
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+
+  margin: 0 0 var(--space-sm);
+}
+
+.cta-close-text {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+
+  margin: 0 0 var(--space-lg);
+}
+
+.cta-close-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 52px;
+  padding: 0 32px;
+
+  border-radius: var(--radius-pill);
+
+  color: #000000;
+  font-weight: var(--font-weight-bold);
+
+  background: var(--gradient-brand);
+
+  transition: transform var(--transition-base);
+}
+
+.cta-close-button:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+/* ====== <= 900px (tablet) ====== */
+@media (max-width: 900px) {
+  .catalog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ====== <= 640px (mobile) ====== */
+@media (max-width: 640px) {
+  .filter-pill {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+/* ====== <= 520px (mobile chico) ====== */
+@media (max-width: 520px) {
+  .catalog-card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .catalog-card-media {
+    width: 80px;
+    height: 80px;
+  }
+}

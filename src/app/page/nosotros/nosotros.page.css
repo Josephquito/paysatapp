@@ -25,6 +25,7 @@
 .nosotros-hero {
   background: var(--color-bg);
   overflow: hidden;
+  padding-top: var(--header-clearance);
 }
 
 .nosotros-hero__grid {

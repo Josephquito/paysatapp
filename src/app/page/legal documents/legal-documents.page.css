@@ -9,6 +9,7 @@
   max-width: var(--max-width-md);
   margin: 0 auto;
   padding: var(--space-lg) var(--container-px) var(--space-xl);
+  padding-top: calc(var(--header-clearance) + var(--space-md));
 }
 
 .legal__title {
