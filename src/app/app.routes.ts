@@ -59,6 +59,10 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./page/legal documents/legal-documents.page').then((m) => m.LegalDocumentsPage),
   },
-
+  {
+    path: 'politica-de-privacidad',
+    loadComponent: () =>
+      import('./page/privacy-policy/privacy-policy.page').then((m) => m.PrivacyPolicyPage),
+  },
   { path: '', pathMatch: 'full', redirectTo: 'empresas' },
 ];

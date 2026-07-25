@@ -73,7 +73,7 @@ export class PersonasHomePage {
     {
       number: '03',
       title: 'Envía',
-      description: 'Dinero a cualquier persona solo con su teléfono.',
+      description: 'Dinero a cualquier persona sólo con su número telefónico celular o móvil.',
     },
     { number: '04', title: 'Recibe', description: 'Y elige cómo usar o retirar tu saldo.' },
   ];
