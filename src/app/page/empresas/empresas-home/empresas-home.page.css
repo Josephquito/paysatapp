@@ -28,6 +28,7 @@
 .hero-overlay {
   position: absolute;
   inset: 0;
+  pointer-events: none;
 
   background: linear-gradient(
     180deg,
@@ -36,7 +37,6 @@
     rgba(0, 0, 0, 0.85) 100%
   );
 }
-
 .hero-content {
   position: relative;
   max-width: var(--max-width-sm);

@@ -27,8 +27,6 @@ export class EmpresasHomePage implements AfterViewInit {
 
   ngAfterViewInit(): void {
     if (!this.isBrowser) return;
-
-    // El video recién se monta aquí, en el cliente, tras el *ngIf.
     setTimeout(() => this.initVideo());
   }
 
@@ -45,24 +43,33 @@ export class EmpresasHomePage implements AfterViewInit {
       }
     };
 
-    // Intento inmediato
     tryPlay();
 
-    // Reintentos en distintos momentos del ciclo de carga del video.
-    // Cubre casos donde el primer play() se dispara antes de que el
-    // navegador esté listo para permitir autoplay.
     video.addEventListener('loadedmetadata', tryPlay);
     video.addEventListener('loadeddata', tryPlay);
     video.addEventListener('canplay', tryPlay);
     video.addEventListener('canplaythrough', tryPlay);
 
-    // Esto replica el "workaround" de cambiar de pestaña y volver:
-    // ahora queda automático desde la primera carga también.
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState === 'visible') tryPlay();
     });
 
     window.addEventListener('pageshow', tryPlay);
     window.addEventListener('focus', tryPlay);
+
+    // Red de seguridad silenciosa: el primer toque del usuario en
+    // CUALQUIER parte de la página (no solo el video) reintenta el play.
+    // El usuario nunca ve nada raro — solo hace que, si el navegador
+    // había bloqueado el autoplay, se desbloquee con su primer gesto
+    // natural (scroll, tap en un link, etc.), sin necesitar tocar el video.
+    const silentUnlock = () => {
+      tryPlay();
+      document.removeEventListener('touchstart', silentUnlock);
+      document.removeEventListener('click', silentUnlock);
+      document.removeEventListener('scroll', silentUnlock);
+    };
+    document.addEventListener('touchstart', silentUnlock, { once: true, passive: true });
+    document.addEventListener('click', silentUnlock, { once: true });
+    document.addEventListener('scroll', silentUnlock, { once: true, passive: true });
   }
 }
