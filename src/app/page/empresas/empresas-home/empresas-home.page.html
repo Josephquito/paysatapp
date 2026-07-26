@@ -3,6 +3,8 @@
 <section class="hero">
   <div class="hero-media">
     <video
+      *ngIf="isBrowser"
+      #heroVideo
       class="hero-video"
       autoplay
       muted
@@ -11,9 +13,11 @@
       preload="auto"
       poster="home-poster.jpg"
     >
-      <source src="home-1080.mp4" type="video/mp4" media="(min-width: 1024px)" />
       <source src="home-720.mp4" type="video/mp4" />
     </video>
+
+    <img *ngIf="!isBrowser" class="hero-video" src="home-poster.jpg" alt="" aria-hidden="true" />
+
     <div class="hero-overlay"></div>
   </div>
 
