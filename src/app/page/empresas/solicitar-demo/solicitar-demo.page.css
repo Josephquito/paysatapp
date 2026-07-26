@@ -81,7 +81,9 @@
   }
 
   .demo-benefits {
-    align-items: center;
+    align-items: flex-start;
+    width: fit-content;
+    margin: 0 auto;
   }
 
   .demo-benefits li {

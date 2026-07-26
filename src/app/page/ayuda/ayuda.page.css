@@ -214,7 +214,8 @@
 /* ===== BLOQUE CONTACTO ===== */
 .ayuda-contacto {
   width: min(var(--max-width-md), calc(100% - 48px));
-  margin: 48px auto 56px;
+  margin: var(--space-lg) auto 0;
+  padding-bottom: var(--space-xl);
 }
 
 .ayuda-contacto__lead {
@@ -308,7 +309,8 @@
 /* ====== <= 768px ====== */
 @media (max-width: 768px) {
   .ayuda-hero {
-    padding: 26px 0 14px;
+    padding-top: calc(var(--header-clearance) + var(--space-sm));
+    padding-bottom: 14px;
   }
 
   .ayuda-hero__title {

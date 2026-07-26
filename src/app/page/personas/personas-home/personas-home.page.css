@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
 
-  overflow: visible;
+  overflow: hidden; /* antes: visible */
 }
 
 .hero-bg {
@@ -309,6 +309,8 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
+
+  min-width: 0; /* nuevo */
 }
 
 .carousel-track {
@@ -319,9 +321,9 @@
   scroll-behavior: smooth;
 
   padding-bottom: 4px;
-
-  /* Oculta la scrollbar visual, pero sigue siendo funcional para gestos táctiles */
   scrollbar-width: none;
+
+  min-width: 0; /* nuevo — esto es lo que realmente arregla el overflow */
 }
 
 .carousel-track::-webkit-scrollbar {
