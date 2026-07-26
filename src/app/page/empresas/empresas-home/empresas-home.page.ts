@@ -29,14 +29,40 @@ export class EmpresasHomePage implements AfterViewInit {
     if (!this.isBrowser) return;
 
     // El video recién se monta aquí, en el cliente, tras el *ngIf.
-    // Al no venir del servidor, no pasa por hidratación y el
-    // autoplay nativo no debería fallar. Forzamos play() como refuerzo.
-    setTimeout(() => {
-      const video = this.heroVideo?.nativeElement;
-      if (!video) return;
+    setTimeout(() => this.initVideo());
+  }
 
-      video.muted = true;
-      video.play().catch(() => {});
+  private initVideo(): void {
+    const video = this.heroVideo?.nativeElement;
+    if (!video) return;
+
+    video.muted = true;
+    video.defaultMuted = true;
+
+    const tryPlay = () => {
+      if (video.paused) {
+        video.play().catch(() => {});
+      }
+    };
+
+    // Intento inmediato
+    tryPlay();
+
+    // Reintentos en distintos momentos del ciclo de carga del video.
+    // Cubre casos donde el primer play() se dispara antes de que el
+    // navegador esté listo para permitir autoplay.
+    video.addEventListener('loadedmetadata', tryPlay);
+    video.addEventListener('loadeddata', tryPlay);
+    video.addEventListener('canplay', tryPlay);
+    video.addEventListener('canplaythrough', tryPlay);
+
+    // Esto replica el "workaround" de cambiar de pestaña y volver:
+    // ahora queda automático desde la primera carga también.
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') tryPlay();
     });
+
+    window.addEventListener('pageshow', tryPlay);
+    window.addEventListener('focus', tryPlay);
   }
 }
